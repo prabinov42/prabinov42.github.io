@@ -1,0 +1,14 @@
+name: "website"
+title: "Peter's Stuff"
+description: |
+  Peter's Stuff
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Projects"
+      href: projects.html      
+output: distill::distill_article
