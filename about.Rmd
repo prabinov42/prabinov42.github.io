@@ -8,3 +8,8 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+I have been doing data science since long before data science was a thing.
+
+You can find me on [LinkedIn](https://www.linkedin.com/in/peter-rabinovitch/)  
+or on [Twitter](https://twitter.com/prabinov42)  
+

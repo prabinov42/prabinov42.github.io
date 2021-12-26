@@ -5,8 +5,8 @@
       "title": "About this site",
       "description": "This is where I put my stuff",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2021-12-26T14:15:45-05:00"
+      "contents": "\nI have been doing data science since long before data science was a thing.\nYou can find me on LinkedIn\nor on Twitter\n\n\n\n",
+      "last_modified": "2021-12-26T14:19:58-05:00"
     },
     {
       "path": "index.html",
@@ -14,14 +14,14 @@
       "description": "Welcome to my website\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-12-26T14:15:46-05:00"
+      "last_modified": "2021-12-26T14:19:58-05:00"
     },
     {
       "path": "projects.html",
       "title": "Projects",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-12-26T14:15:46-05:00"
+      "last_modified": "2021-12-26T14:19:59-05:00"
     }
   ],
   "collections": ["posts/posts.json"]
