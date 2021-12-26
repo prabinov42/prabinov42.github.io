@@ -8,7 +8,11 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-I have been doing data science since long before data science was a thing.
+I have been doing data science since long before data science was a thing. 
+
+I have applied it to telecom (Alcatel, BlackBerry, Akamai), fintech (Ario/ThinkingCapital), and eCommerce (Shopify). 
+
+I also teach an intro to data science course to MBA students at University of Ottawa.  
 
 You can find me on [LinkedIn](https://www.linkedin.com/in/peter-rabinovitch/)  
 or on [Twitter](https://twitter.com/prabinov42)  

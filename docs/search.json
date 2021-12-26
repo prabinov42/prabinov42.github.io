@@ -5,8 +5,8 @@
       "title": "About this site",
       "description": "This is where I put my stuff",
       "author": [],
-      "contents": "\nI have been doing data science since long before data science was a thing.\nYou can find me on LinkedIn\nor on Twitter\n\n\n\n",
-      "last_modified": "2021-12-26T14:19:58-05:00"
+      "contents": "\nI have been doing data science since long before data science was a thing.\nI have applied it to telecom (Alcatel, BlackBerry, Akamai), fintech (Ario/ThinkingCapital), and eCommerce (Shopify).\nI also teach an intro to data science course to MBA students at University of Ottawa.\nYou can find me on LinkedIn\nor on Twitter\n\n\n\n",
+      "last_modified": "2021-12-26T14:24:34-05:00"
     },
     {
       "path": "index.html",
@@ -14,14 +14,14 @@
       "description": "Welcome to my website\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-12-26T14:19:58-05:00"
+      "last_modified": "2021-12-26T14:24:34-05:00"
     },
     {
       "path": "projects.html",
       "title": "Projects",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-12-26T14:19:59-05:00"
+      "last_modified": "2021-12-26T14:24:35-05:00"
     }
   ],
   "collections": ["posts/posts.json"]
