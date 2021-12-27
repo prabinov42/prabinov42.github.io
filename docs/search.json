@@ -5,8 +5,8 @@
       "title": "About me",
       "description": "I have been doing data science since long before data science was a thing. ",
       "author": [],
-      "contents": "\nI have applied data science to telecom (Alcatel, BlackBerry, Akamai), fintech (Ario/ThinkingCapital), and eCommerce (Shopify).\nI also teach an intro to data science course to MBA students at University of Ottawa.\nI used to co-lead Data for Good in Ottawa: volunteer data scientists trying to make Ottawa better by helping local charities.\nYou can find me on LinkedIn and on Twitter\n\n\n\n",
-      "last_modified": "2021-12-26T14:32:04-05:00"
+      "contents": "\nI have applied data science to telecom while at Alcatel (now Nokia), BlackBerry, Akamai; fintech while at Ario/Thinking Capital; and eCommerce while at Shopify.\nI also teach an intro to data science course to MBA students at University of Ottawa.\nI used to co-lead Data for Good in Ottawa: volunteer data scientists trying to make Ottawa better by helping local charities.\nYou can find me on LinkedIn and on Twitter\n\n\n\n",
+      "last_modified": "2021-12-27T09:04:51-05:00"
     },
     {
       "path": "index.html",
@@ -14,14 +14,14 @@
       "description": "Welcome to my website\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-12-26T14:32:04-05:00"
+      "last_modified": "2021-12-27T09:04:52-05:00"
     },
     {
       "path": "projects.html",
       "title": "Projects",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-12-26T14:32:05-05:00"
+      "last_modified": "2021-12-27T09:04:52-05:00"
     }
   ],
   "collections": ["posts/posts.json"]
