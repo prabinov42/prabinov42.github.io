@@ -10,11 +10,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 
-I have applied data science to telecom while at Alcatel (now [Nokia](https://www.nokia.com/)), [BlackBerry](https://www.blackberry.com), [Akamai](https://www.akamai.com/); fintech while at  [Ario/Thinking Capital](https://www.thinkingcapital.ca/); and eCommerce while at [Shopify](https://www.shopify.ca/). 
+I have applied data science to telecom while at Alcatel/[Nokia](https://www.nokia.com/), [BlackBerry](https://www.blackberry.com), [Akamai](https://www.akamai.com/); fintech while at  [Ario/Thinking Capital](https://www.thinkingcapital.ca/); and eCommerce while at [Shopify](https://www.shopify.ca/). 
 
 I also teach an intro to data science course to MBA students at [University of Ottawa](https://telfer.uottawa.ca).  
 
-I used to co-lead [Data for Good in Ottawa](https://ottawa.dataforgood.ca/): volunteer data scientists trying to make Ottawa better by helping local charities. You can see a bit more about how D4GOttawa used to work, and largely still does, [here](https://datascienceottawa.wordpress.com/data-for-good-ottawa-intro-faq-status/). It is a great way to improve your data science skills, meet cool people, and help the city.
+I used to co-lead [Data for Good in Ottawa](https://ottawa.dataforgood.ca/): volunteer data scientists trying to make Ottawa better by helping local charities. You can see a bit more about how D4G Ottawa used to work, and largely still does, [here](https://datascienceottawa.wordpress.com/data-for-good-ottawa-intro-faq-status/). It is a great way to improve your data science skills, meet cool people, and help the city.
 
 You can find me on [LinkedIn](https://www.linkedin.com/in/peter-rabinovitch/) and on [Twitter](https://twitter.com/prabinov42)  
 
