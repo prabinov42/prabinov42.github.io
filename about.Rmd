@@ -14,7 +14,7 @@ I have applied data science to telecom while at Alcatel (now [Nokia](https://www
 
 I also teach an intro to data science course to MBA students at [University of Ottawa](https://telfer.uottawa.ca).  
 
-I used to co-lead [Data for Good in Ottawa](https://ottawa.dataforgood.ca/): volunteer data scientists trying to make Ottawa better by helping local charities.
+I used to co-lead [Data for Good in Ottawa](https://ottawa.dataforgood.ca/): volunteer data scientists trying to make Ottawa better by helping local charities. You can see a bit more about how D4GOttawa used to work, and largely still does, [here](https://datascienceottawa.wordpress.com/data-for-good-ottawa-intro-faq-status/). It is a great way to improve your data science skills, meet cool people, and help the city.
 
 You can find me on [LinkedIn](https://www.linkedin.com/in/peter-rabinovitch/) and on [Twitter](https://twitter.com/prabinov42)  
 
