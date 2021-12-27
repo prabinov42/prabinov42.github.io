@@ -16,3 +16,5 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
+This is what I look like:
+![](me.png)
