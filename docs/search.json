@@ -6,7 +6,7 @@
       "description": "I have been doing data science since long before data science was a thing. ",
       "author": [],
       "contents": "\nI have applied data science to telecom while at Alcatel/Nokia, BlackBerry, Akamai; fintech while at Ario/Thinking Capital; and eCommerce while at Shopify.\nI also teach an intro to data science course to MBA students at University of Ottawa.\nI used to co-lead Data for Good in Ottawa: volunteer data scientists trying to make Ottawa better by helping local charities. You can see a bit more about how D4G Ottawa used to work, and largely still does, here. It is a great way to improve your data science skills, meet cool people, and help the city.\nYou can find me on LinkedIn and on Twitter\n\n\n\n",
-      "last_modified": "2021-12-27T12:40:29-05:00"
+      "last_modified": "2021-12-27T15:49:22-05:00"
     },
     {
       "path": "index.html",
@@ -14,14 +14,14 @@
       "description": "Welcome to my website\n",
       "author": [],
       "contents": "\nThis is what I look like:\n\n\n\n\n\n\n",
-      "last_modified": "2021-12-27T12:40:29-05:00"
+      "last_modified": "2021-12-27T15:49:22-05:00"
     },
     {
       "path": "projects.html",
       "title": "Projects",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-12-27T12:40:29-05:00"
+      "last_modified": "2021-12-27T15:49:23-05:00"
     }
   ],
   "collections": ["posts/posts.json"]

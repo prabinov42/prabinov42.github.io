@@ -19,4 +19,6 @@ The cool thing is with causact you can describe your model as a graph, like this
 
 and it automatically generates the greta code which you can run to get estimates of everything.
 
+[First post here!](https://github.com/prabinov42/Greta_Causact_Exploration/blob/main/greta_causact_exploration.md)
+
 More stuff to come soon.
