@@ -1,5 +1,17 @@
 [
   {
+    "path": "posts/betareg/",
+    "title": "Beta Regression",
+    "description": "An Introduction to Beta Regression",
+    "author": [],
+    "date": "2022-04-17",
+    "categories": [],
+    "contents": "\nThe purpose of this project is to show how to do a beta regression in R using the awesome betareg package.\nGet started!\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-04-17T14:25:11-04:00",
+    "input_file": "betareg.knit.md"
+  },
+  {
     "path": "posts/greta_and_causact/",
     "title": "Greta and Causact",
     "description": "Bayesian Models with Greta and Causact",
