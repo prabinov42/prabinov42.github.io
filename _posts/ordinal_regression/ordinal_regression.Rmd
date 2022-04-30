@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The purpose of this project is to show how to do an ordinal regression in R.
 
-[Get started!](https://github.com/prabinov42/betareg/blob/main/OrdinalRegression.md)
+[Get started!](https://github.com/prabinov42/OrdinalRegression/blob/main/OrdinalRegression.md)
 
 
 
