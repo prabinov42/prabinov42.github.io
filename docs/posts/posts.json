@@ -1,5 +1,17 @@
 [
   {
+    "path": "posts/ordinal_regression/",
+    "title": "Ordinal Regression",
+    "description": "An Introduction to Ordinal Regression",
+    "author": [],
+    "date": "2022-04-30",
+    "categories": [],
+    "contents": "\nThe purpose of this project is to show how to do an ordinal regression in R.\nGet started!\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-04-30T14:49:25-04:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/betareg/",
     "title": "Beta Regression",
     "description": "An Introduction to Beta Regression",
@@ -8,8 +20,8 @@
     "categories": [],
     "contents": "\nThe purpose of this project is to show how to do a beta regression in R using the awesome betareg package.\nGet started!\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-04-17T14:25:11-04:00",
-    "input_file": "betareg.knit.md"
+    "last_modified": "2022-04-17T14:25:12-04:00",
+    "input_file": {}
   },
   {
     "path": "posts/greta_and_causact/",
