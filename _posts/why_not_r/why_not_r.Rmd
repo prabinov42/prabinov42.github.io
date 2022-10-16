@@ -1,0 +1,20 @@
+---
+title: "Why Not R"
+description: |
+  Why not use R for all courses in Commerce (BCommm and MBA)?
+date: 2022-10-16
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+It is my belief that a business student's academic journey can be enriched by using one computational system for the entire program, whether it be for an undergrad or grad program. Here I make the case for that system being R.
+
+[Let me convince you!](https://github.com/prabinov42/WhyNotR/blob/main/why_not_r.md)
+
+
+
