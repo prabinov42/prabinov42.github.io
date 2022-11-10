@@ -2,13 +2,13 @@
   {
     "path": "posts/why_not_r/",
     "title": "Why Not R",
-    "description": "Why not use R for all courses in Commerce (BCommm and MBA)?",
+    "description": "Why not use R for all courses in Commerce (BComm and MBA)?",
     "author": [],
     "date": "2022-10-16",
     "categories": [],
     "contents": "\nIt is my belief that a business student’s academic journey can be\nenriched by using one computational system for the entire program,\nwhether it be for an undergrad or grad program. Here I make the case for\nthat system being R.\nLet\nme convince you!\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-10-16T13:32:06-04:00",
+    "last_modified": "2022-11-10T12:34:59-05:00",
     "input_file": "why_not_r.knit.md"
   },
   {
