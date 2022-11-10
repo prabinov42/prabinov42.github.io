@@ -54,9 +54,9 @@
     "author": [],
     "date": "2021-12-26",
     "categories": [],
-    "contents": "\nA million years ago I did a series of posts about data science and horse racing. I plan to update and migrate them here.\nUntil then, you can see the old version\n\n\n\n",
+    "contents": "\nA million years ago I did a series of posts about data science and\nhorse racing.\nI cleaned it up a bit and migrated it from Wordpress to here.\nYou can still see the old version\nfor a while.\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-12-27T09:13:00-05:00",
-    "input_file": {}
+    "last_modified": "2022-11-10T15:27:41-05:00",
+    "input_file": "ponies.knit.md"
   }
 ]
