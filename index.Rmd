@@ -16,7 +16,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-Isaac & Kurt contemplating the monolith:  
+To see more about me look at the stuff in the menus (upper right).   
+Otherwise, please enjoy Isaac & Kurt contemplating the monolith:  
 
 ```{r, echo=FALSE, out.width="100%"}
 knitr::include_graphics("contemplation.png")
