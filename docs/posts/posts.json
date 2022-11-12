@@ -12,6 +12,18 @@
     "input_file": "why_not_r.knit.md"
   },
   {
+    "path": "posts/full_stat/",
+    "title": "The Full Stat Data Scientist",
+    "description": "What is a full-stat data scientist?",
+    "author": [],
+    "date": "2022-10-16",
+    "categories": [],
+    "contents": "\nI have been thinking about different data scientists, and I think we\nneed a new term for some: the full-stat data scientist.\nNo that is not a typo. Doubtless you have seen much about\nfull-stack data scientists, here we compare and contrast.\nWhat is a\nfull-stack data scientist?\nA full-stack data scientist is one who can code, do stats, define\nmetrics, etc and take an idea from concept through pipeline to database\ndesign to building a dashboard.\nThey have all of the basic skills of a regular data scientist with\nthe added features of strong data engineering and software engineering\nskills.\nThey are called full-stack because they work with the full\nstack of data science tools.\nOne advantage of full-stack data scientists is that they can own the\ndata science product, from beginning to end.\nThey frequently come with computer science degrees, and have taken a\nfew stats courses.\nWhat is a full-stat\ndata scientist?\nA full-stat data scientist is a data scientist who can do\nmuch of what a full-stack data scientist can, but is likely less skilled\nin the data engineering realm.\nThey may not have as much experience in building dashboards or\npipelines, but they excel in the more quantitative areas. They may come\nwith advanced degrees in statistics, probability, and econometrics.\nThey model the business situation using whatever techniques are\nrequired: analysis, stochastic modeling, simulation, optimization, game\ntheory, etc and determine which statistical techniques are required in\norder to analyze the data based on the model.\nThey can adapt the techniques to the problem when needed, rather than\nuse inappropriate, but standard methodologies, or develop completely\nnovel approaches when needed.\nThey are deeply skeptical about data and find anomalies that no-one\nelse does and figures out what to do about them, and they care deeply\nabout uncertainty.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-11-12T09:29:08-05:00",
+    "input_file": "full_stat.knit.md"
+  },
+  {
     "path": "posts/ordinal_regression/",
     "title": "Ordinal Regression",
     "description": "An Introduction to Ordinal Regression",

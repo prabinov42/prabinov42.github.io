@@ -1,0 +1,45 @@
+---
+title: "The Full Stat Data Scientist"
+description: |
+  What is a full-stat data scientist?
+date: 2022-10-16
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+I have been thinking about different data scientists, and I think we need a new term for some: the _full-stat_ data scientist. 
+
+No that is not a typo. Doubtless you have seen much about _full-stack_ data scientists, here we compare and contrast.
+
+
+## What is a _full-stack_ data scientist?
+A full-stack data scientist is one who can code, do stats, define metrics, etc and take an idea from concept through pipeline to database design to building a dashboard. 
+
+They have all of the basic skills of a regular data scientist with the added features of strong data engineering and software engineering skills. 
+
+They are called _full-stack_ because they work with the full stack of data science tools. 
+
+One advantage of full-stack data scientists is that they can own the data science product, from beginning to end. 
+
+They frequently come with computer science degrees, and have taken a few stats courses.
+
+## What is a _full-stat_ data scientist?
+A _full-stat_ data scientist is a data scientist who can do much of what a full-stack data scientist can, but is likely less skilled in the data engineering realm. 
+
+They may not have as much experience in building dashboards or pipelines, but they excel in the more quantitative areas. 
+They may come with advanced degrees in statistics, probability, and econometrics. 
+
+They model the business situation using whatever techniques are required: analysis, stochastic modeling, simulation, optimization, game theory, etc and determine which statistical techniques are required in order to analyze the data based on the model. 
+
+They can adapt the techniques to the problem when needed, rather than use inappropriate, but standard methodologies, or develop completely novel approaches when needed. 
+
+They are deeply skeptical about data and find anomalies that no-one else does and figures out what to do about them, and they care deeply about uncertainty.
+
+
+
+
