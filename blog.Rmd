@@ -46,7 +46,7 @@ They are deeply skeptical about data and find anomalies that no one else does an
 They will use words like _R_, _Markov chain_, _glm_, _DAG_, and _Stan_. 
 
 
-## Discussion
+## Discussion{#discussion}
 
 Both can be incredibly valuable to your organization. Full-stack data scientists are able to get the data from your customer facing systems into data sets suitable for analysis, create dash boards showing changes in metrics, and run A/B experiments. Full-stat data scientists can probe the deepest recesses of these data sets, and rigorously analyze them in ways that yield new insights.
 
