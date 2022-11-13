@@ -43,7 +43,7 @@ They can adapt the techniques to the problem when needed or develop completely n
 
 They are deeply skeptical about data and find anomalies that no one else does and figure out what to do about them. They care deeply about quantifying uncertainty and the impact of this uncertainty on business decisions.
 
-They will use words like _R_, _Markov chain_, _glm_, _DAG_, and _Stan_. 
+They will use words like _R_, _Markov chain_, _glm_, _utility function_, _DAG_, and _Stan_. 
 
 
 ## Discussion
