@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-# What is a full-stat data scientist?
+# What is a full-stat data scientist?{#fullstat}
 `r lubridate::today()`
 
 I have been thinking about different kinds of data scientists, and I think we need a new term for some: the __full-stat__ data scientist. 
