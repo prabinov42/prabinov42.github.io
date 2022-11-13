@@ -5,8 +5,8 @@
       "title": "About me",
       "description": "I have been doing data science since long before data science was a thing. ",
       "author": [],
-      "contents": "\nI have applied data science to telecom while at Alcatel/Nokia, BlackBerry, Akamai; fintech while at Ario/Thinking Capital; and eCommerce while at Shopify. I am now working at Meta, improving your music recommendations.\nI also teach an intro to data science course to MBA students at University of Ottawa.\nI used to co-lead Data for Good in Ottawa: volunteer data scientists trying to make Ottawa better by helping local charities. You can see a bit more about how D4G Ottawa used to work, and largely still does, here. It is a great way to improve your data science skills, meet cool people, and help the city.\nYou can find me on LinkedIn and on Twitter\n\n\n\n",
-      "last_modified": "2022-04-30T14:53:00-04:00"
+      "contents": "\nI have applied data science to telecom while at Alcatel/Nokia, BlackBerry, Akamai; fintech while at Ario/Thinking Capital; and\neCommerce while at Shopify. Most\nrecently, I worked at Meta, on improving\nvideo recommendations.\nI also teach an intro to data science course to MBA students at University of Ottawa.\nI used to co-lead Data for\nGood in Ottawa: volunteer data scientists trying to make Ottawa\nbetter by helping local charities. You can see a bit more about how D4G\nOttawa used to work, and largely still does, here.\nIt is a great way to improve your data science skills, meet cool people,\nand help the city.\nYou can find me on LinkedIn and\non Twitter\n\n\n\n",
+      "last_modified": "2022-11-13T09:40:20-05:00"
     },
     {
       "path": "blog.html",
@@ -14,7 +14,7 @@
       "description": "Various non-project thoughts. ",
       "author": [],
       "contents": "\nWhat is a full-stat data\nscientist?\n2022-11-13\nI have been thinking about different kinds of data scientists, and I\nthink we need a new term for some: the full-stat data\nscientist.\nNo, that is not a typo. Doubtless you have seen much about\nfull-stack data scientists - here we compare and contrast.\nWhat is a\nfull-stack data scientist?\nA full-stack data scientist is one who can code, do stats, define\nmetrics, etc. and take an idea from concept through pipeline to database\ndesign to building a dashboard.\nThey have all of the basic skills of a regular data scientist with\nthe added features of strong data engineering and software engineering\nskills.\nThey are called full-stack because they work with the full\nstack of data science tools.\nFull-stack data scientists own the data science product, from\nbeginning to end.\nThey frequently come with computer science degrees, and have taken a\nfew stats courses,\nThey will use words like kubernetes, presto,\nspark, python, sql, pandas,\npymc, scikit-learn, and kafka.\nWhat is a\nfull-stat data scientist?\nA full-stat data scientist is a data scientist who can do\nmuch of what a full-stack data scientist can, and may be less skilled in\nthe data engineering realm, but more skilled in statistics and\nquantitative modeling.\nMany come with advanced degrees in statistics, probability, and\neconometrics.\nThey model the business situation using whatever techniques are\nrequired: analysis, stochastic modeling, simulation, optimization, game\ntheory, etc. and determine which statistical techniques are required in\norder to analyze the data based on the model.\nThey can adapt the techniques to the problem when needed or develop\ncompletely novel approaches when needed. They can evaluate trade-offs\nbetween inferential accuracy and run-time requirements of estimation\nalgorithms.\nThey are deeply skeptical about data and find anomalies that no one\nelse does and figure out what to do about them. They care deeply about\nquantifying uncertainty and the impact of this uncertainty on business\ndecisions.\nThey will use words like R, Markov chain,\nglm, DAG, and Stan.\nDiscussion\nBoth can be incredibly valuable to your organization. Full-stack data\nscientists are able to get the data from your customer facing systems\ninto data sets suitable for analysis, create dash boards showing changes\nin metrics, and run A/B experiments. Full-stat data scientists can probe\nthe deepest recesses of these data sets, and rigorously analyze them in\nways that yield new insights.\nNote that this does not mean a full-stat data scientist will not know\nsql, nor that a full-stack can’t do a Bayesian analysis - just that\ntheir expertise, experience and mindset is generally in their own\ncamp.\n\n\n\n",
-      "last_modified": "2022-11-13T09:32:53-05:00"
+      "last_modified": "2022-11-13T09:40:30-05:00"
     },
     {
       "path": "index.html",
@@ -22,14 +22,14 @@
       "description": "Welcome to my website\n",
       "author": [],
       "contents": "\nTo see more about me look at the stuff in the menus (upper\nright).\nOtherwise, please enjoy Isaac & Kurt contemplating the monolith:\n\n\n\n\n\n\n",
-      "last_modified": "2022-11-13T09:32:38-05:00"
+      "last_modified": "2022-11-13T09:40:40-05:00"
     },
     {
       "path": "projects.html",
       "title": "Projects",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-11-12T15:49:22-05:00"
+      "last_modified": "2022-11-13T09:40:49-05:00"
     }
   ],
   "collections": ["posts/posts.json"]
