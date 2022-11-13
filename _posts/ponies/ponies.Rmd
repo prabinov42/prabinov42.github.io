@@ -12,6 +12,8 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-A million years ago I did a series of posts about data science and horse racing. I plan to update and migrate them here.
+A million years ago I did a series of posts about data science and horse racing. 
 
-Until then, you can see the [old version ](https://datascienceottawa.wordpress.com/ponies/)
+I cleaned it up a bit and migrated it from Wordpress to [here](https://github.com/prabinov42/ponies_blog/blob/main/ponies_blog.md).
+
+You can still see the [old version ](https://datascienceottawa.wordpress.com/ponies/) for a while.

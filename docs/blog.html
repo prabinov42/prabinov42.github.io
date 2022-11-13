@@ -87,26 +87,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Peter's Stuff: Projects</title>
+  <title>Peter's Stuff: Blog</title>
 
+  <meta property="description" itemprop="description" content="Various non-project thoughts."/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Peter&#39;s Stuff: Projects"/>
+  <meta property="og:title" content="Peter&#39;s Stuff: Blog"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Various non-project thoughts."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Peter&#39;s Stuff"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Peter&#39;s Stuff: Projects"/>
+  <meta property="twitter:title" content="Peter&#39;s Stuff: Blog"/>
+  <meta property="twitter:description" content="Various non-project thoughts."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":["Projects"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Blog"]},{"type":"character","attributes":{},"value":["Various non-project thoughts. "]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2034,7 +2037,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14.1/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2049,12 +2052,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Projects","authors":[]}
+{"title":"Blog","description":"Various non-project thoughts.","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2068,6 +2071,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="nav-right">
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
+<a href="blog.html">Blogs</a>
 <a href="projects.html">Projects</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
@@ -2076,247 +2080,76 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).on("load", function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      page_category = decodeURIComponent(page_category)
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-apply-limit l-page">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Projects">Projects</h1>
-<a href="posts/full_stat/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Oct. 16, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail"></div>
-<div class="description">
-<h2>The Full-Stat Data Scientist</h2>
-<div class="dt-tags"></div>
-<p>What is a full-stat data scientist?</p>
-</div>
-</a>
-<a href="posts/why_not_r/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Oct. 16, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Why Not R</h2>
-<div class="dt-tags"></div>
-<p>Why not use R for all courses in Commerce (BComm and MBA)?</p>
-</div>
-</a>
-<a href="posts/ordinal_regression/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">April 30, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Ordinal Regression</h2>
-<div class="dt-tags"></div>
-<p>An Introduction to Ordinal Regression</p>
-</div>
-</a>
-<a href="posts/betareg/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">April 17, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Beta Regression</h2>
-<div class="dt-tags"></div>
-<p>An Introduction to Beta Regression</p>
-</div>
-</a>
-<a href="posts/greta_and_causact/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 26, 2021</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Greta and Causact</h2>
-<div class="dt-tags"></div>
-<p>Bayesian Models with Greta and Causact</p>
-</div>
-</a>
-<a href="posts/ponies/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 26, 2021</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Ponies</h2>
-<div class="dt-tags"></div>
-<p>Data science and horse racing</p>
-</div>
-</a>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Projects</h1>
+<h1>Blog</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>Various non-project thoughts.</p></p>
 </div>
 
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h1 id="what-is-a-full-stat-data-scientist">What is a full-stat data
+scientist?</h1>
+<p>2022-11-13</p>
+<p>I have been thinking about different data scientists, and I think we
+need a new term for some: the <strong>full-stat</strong> data
+scientist.</p>
+<p>No, that is not a typo. Doubtless you have seen much about
+<em>full-stack</em> data scientists - here we compare and contrast.</p>
+<h2 id="what-is-a-full-stack-data-scientist">What is a
+<em>full-stack</em> data scientist?</h2>
+<p>A full-stack data scientist is one who can code, do stats, define
+metrics, etc. and take an idea from concept through pipeline to database
+design to building a dashboard.</p>
+<p>They have all of the basic skills of a regular data scientist with
+the added features of strong data engineering and software engineering
+skills.</p>
+<p>They are called <em>full-stack</em> because they work with the full
+stack of data science tools.</p>
+<p>Full-stack data scientists own the data science product, from
+beginning to end.</p>
+<p>They frequently come with computer science degrees, and have taken a
+few stats courses,</p>
+<p>They will use words like <em>kubernetes</em>, <em>presto</em>,
+<em>spark</em>, <em>python</em>, <em>sql</em>, <em>pandas</em>,
+<em>pymc</em>, <em>scikit-learn</em>, and <em>kafka</em>.</p>
+<h2 id="what-is-a-full-stat-data-scientist-1">What is a
+<em>full-stat</em> data scientist?</h2>
+<p>A <em>full-stat</em> data scientist is a data scientist who can do
+much of what a full-stack data scientist can, and may be less skilled in
+the data engineering realm, but more skilled in statistics and
+quantitative modeling.</p>
+<p>Many come with advanced degrees in statistics, probability, and
+econometrics.</p>
+<p>They model the business situation using whatever techniques are
+required: analysis, stochastic modeling, simulation, optimization, game
+theory, etc. and determine which statistical techniques are required in
+order to analyze the data based on the model.</p>
+<p>They can adapt the techniques to the problem when needed or develop
+completely novel approaches when needed. They can evaluate trade-offs
+between inferential accuracy and run-time requirements of estimation
+algorithms.</p>
+<p>They are deeply skeptical about data and find anomalies that no one
+else does and figure out what to do about them. They care deeply about
+quantifying uncertainty and the impact of this uncertainty on business
+decisions.</p>
+<p>They will use words like <em>R</em>, <em>Markov chain</em>,
+<em>glm</em>, <em>DAG</em>, and <em>Stan</em>.</p>
+<h2 id="discussion">Discussion</h2>
+<p>Both can be incredibly valuable to your organization. Full-stack data
+scientists are able to get the data from your customer facing systems
+into data sets suitable for analysis, create dash boards showing changes
+in metrics, and run A/B experiments. Full-stat data scientists can probe
+the deepest recesses of these data sets, and rigorously analyze them in
+ways that yield new insights.</p>
+<p>Note that this does not mean a full-stat data scientist will not know
+sql, nor that a full-stack can’t do a Bayesian analysis - just that
+their expertise, experience and mindset is generally in their own
+camp.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
