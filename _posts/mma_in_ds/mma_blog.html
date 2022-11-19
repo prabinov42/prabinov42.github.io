@@ -87,635 +87,38 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Peter's Stuff: Projects</title>
+  <title>Probabilistic Modeling with Mathematica</title>
+
+  <meta property="description" itemprop="description" content="Using Mathematica to do some cool data science things"/>
 
 
-
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2022-10-16"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-10-16"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Peter&#39;s Stuff: Projects"/>
+  <meta property="og:title" content="Probabilistic Modeling with Mathematica"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Using Mathematica to do some cool data science things"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="Peter&#39;s Stuff"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Peter&#39;s Stuff: Projects"/>
+  <meta property="twitter:title" content="Probabilistic Modeling with Mathematica"/>
+  <meta property="twitter:description" content="Using Mathematica to do some cool data science things"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":["Projects"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output","editor_options"]}},"value":[{"type":"character","attributes":{},"value":["Probabilistic Modeling with Mathematica"]},{"type":"character","attributes":{},"value":["Using Mathematica to do some cool data science things\n"]},{"type":"character","attributes":{},"value":["2022-10-16"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["markdown"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["wrap"]}},"value":[{"type":"character","attributes":{},"value":["sentence"]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["mma_blog_files/anchor-4.2.2/anchor.min.js","mma_blog_files/bowser-1.9.3/bowser.min.js","mma_blog_files/distill-2.2.21/template.v2.js","mma_blog_files/header-attrs-2.14.1/header-attrs.js","mma_blog_files/jquery-3.6.0/jquery-3.6.0.js","mma_blog_files/jquery-3.6.0/jquery-3.6.0.min.js","mma_blog_files/jquery-3.6.0/jquery-3.6.0.min.map","mma_blog_files/popper-2.6.0/popper.min.js","mma_blog_files/tippy-6.2.7/tippy-bundle.umd.min.js","mma_blog_files/tippy-6.2.7/tippy-light-border.css","mma_blog_files/tippy-6.2.7/tippy.css","mma_blog_files/tippy-6.2.7/tippy.umd.min.js","mma_blog_files/webcomponents-2.0.0/webcomponents.js","mma_blog_plot.png"]}
+  </script>
   <!--radix_placeholder_navigation_in_header-->
-  <meta name="distill:offset" content=""/>
-
-  <script type="application/javascript">
-
-    window.headroom_prevent_pin = false;
-
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        tolerance: 5,
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
-  </script>
-
-  <style type="text/css">
-
-  /* Theme (user-documented overrideables for nav appearance) */
-
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #0F2E3D;
-    font-size: 15px;
-    font-weight: 300;
-  }
-
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .distill-site-nav a:hover {
-    color: white;
-  }
-
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-
-  .distill-site-header {
-
-  }
-
-  .distill-site-footer {
-
-  }
-
-
-  /* Site Header */
-
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-
-
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-
-  .distill-site-header .title {
-    font-size: 18px;
-    min-width: 150px;
-  }
-
-  .distill-site-header .logo {
-    padding: 0;
-  }
-
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-
-
-
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-
-
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-dropdown-active {
-    display: block;
-  }
-
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative; min-height: 500px; }
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-
-  /* Site Footer */
-
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-
-  /* Headroom */
-
-  d-title {
-    padding-top: 6rem;
-  }
-
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-
-  .headroom--unpinned {
-    top: -100px;
-  }
-
-  .headroom--pinned {
-    top: 0;
-  }
-
-  /* adjust viewport for navbar height */
-  /* helps vertically center bootstrap (non-distill) content */
-  .min-vh-100 {
-    min-height: calc(100vh - 100px) !important;
-  }
-
-  </style>
-
-  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
-  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
-  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
-
-  <script type="application/javascript">
-
-  function getMeta(metaName) {
-    var metas = document.getElementsByTagName('meta');
-    for (let i = 0; i < metas.length; i++) {
-      if (metas[i].getAttribute('name') === metaName) {
-        return metas[i].getAttribute('content');
-      }
-    }
-    return '';
-  }
-
-  function offsetURL(url) {
-    var offset = getMeta('distill:offset');
-    return offset ? offset + '/' + url : url;
-  }
-
-  function createFuseIndex() {
-
-    // create fuse index
-    var options = {
-      keys: [
-        { name: 'title', weight: 20 },
-        { name: 'categories', weight: 15 },
-        { name: 'description', weight: 10 },
-        { name: 'contents', weight: 5 },
-      ],
-      ignoreLocation: true,
-      threshold: 0
-    };
-    var fuse = new window.Fuse([], options);
-
-    // fetch the main search.json
-    return fetch(offsetURL('search.json'))
-      .then(function(response) {
-        if (response.status == 200) {
-          return response.json().then(function(json) {
-            // index main articles
-            json.articles.forEach(function(article) {
-              fuse.add(article);
-            });
-            // download collections and index their articles
-            return Promise.all(json.collections.map(function(collection) {
-              return fetch(offsetURL(collection)).then(function(response) {
-                if (response.status === 200) {
-                  return response.json().then(function(articles) {
-                    articles.forEach(function(article) {
-                      fuse.add(article);
-                    });
-                  })
-                } else {
-                  return Promise.reject(
-                    new Error('Unexpected status from search index request: ' +
-                              response.status)
-                  );
-                }
-              });
-            })).then(function() {
-              return fuse;
-            });
-          });
-
-        } else {
-          return Promise.reject(
-            new Error('Unexpected status from search index request: ' +
-                        response.status)
-          );
-        }
-      });
-  }
-
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-
-    // get search element (bail if we don't have one)
-    var searchEl = window.document.getElementById('distill-search');
-    if (!searchEl)
-      return;
-
-    createFuseIndex()
-      .then(function(fuse) {
-
-        // make search box visible
-        searchEl.classList.remove('hidden');
-
-        // initialize autocomplete
-        var options = {
-          autoselect: true,
-          hint: false,
-          minLength: 2,
-        };
-        window.autocomplete(searchEl, options, [{
-          source: function(query, callback) {
-            const searchOptions = {
-              isCaseSensitive: false,
-              shouldSort: true,
-              minMatchCharLength: 2,
-              limit: 10,
-            };
-            var results = fuse.search(query, searchOptions);
-            callback(results
-              .map(function(result) { return result.item; })
-            );
-          },
-          templates: {
-            suggestion: function(suggestion) {
-              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
-                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
-                : '';
-              var html = `
-                <div class="search-item">
-                  <h3>${suggestion.title}</h3>
-                  <div class="search-item-description">
-                    ${suggestion.description || ''}
-                  </div>
-                  <div class="search-item-preview">
-                    ${img}
-                  </div>
-                </div>
-              `;
-              return html;
-            }
-          }
-        }]).on('autocomplete:selected', function(event, suggestion) {
-          window.location.href = offsetURL(suggestion.path);
-        });
-        // remove inline display style on autocompleter (we want to
-        // manage responsive display via css)
-        $('.algolia-autocomplete').css("display", "");
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-
-  });
-
-  </script>
-
-  <style type="text/css">
-
-  .nav-search {
-    font-size: x-small;
-  }
-
-  /* Algolioa Autocomplete */
-
-  .algolia-autocomplete {
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: sub;
-    background-color: white;
-    color: black;
-    padding: 6px;
-    padding-top: 8px;
-    padding-bottom: 0;
-    border-radius: 6px;
-    border: 1px #0F2E3D solid;
-    width: 180px;
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-nav .algolia-autocomplete {
-      display: none;
-      visibility: hidden;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete {
-      display: inline-block;
-      visibility: visible;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
-      margin-left: 0;
-      width: 400px;
-      max-height: 400px;
-    }
-  }
-
-  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
-    width: 90%;
-    outline: none;
-    border: none;
-  }
-
-  .algolia-autocomplete .aa-hint {
-    color: #999;
-  }
-  .algolia-autocomplete .aa-dropdown-menu {
-    width: 550px;
-    max-height: 70vh;
-    overflow-x: visible;
-    overflow-y: scroll;
-    padding: 5px;
-    margin-top: 3px;
-    margin-left: -150px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #999;
-    border-top: none;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-    cursor: pointer;
-    padding: 5px 4px;
-    border-bottom: 1px solid #eee;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
-    border-bottom: none;
-    margin-bottom: 2px;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
-    overflow: hidden;
-    font-size: 0.8em;
-    line-height: 1.4em;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
-    font-size: 1rem;
-    margin-block-start: 0;
-    margin-block-end: 5px;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
-    display: inline-block;
-    overflow: hidden;
-    height: 2.8em;
-    width: 80%;
-    margin-right: 4%;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
-    display: inline-block;
-    width: 15%;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
-    height: 3em;
-    width: auto;
-    display: none;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
-    display: initial;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-    background-color: #eee;
-  }
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  </style>
-
-
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
 
@@ -2034,292 +1437,213 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14.1/header-attrs.js"></script>
-  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
-  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="mma_blog_files/header-attrs-2.14.1/header-attrs.js"></script>
+  <script src="mma_blog_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="mma_blog_files/popper-2.6.0/popper.min.js"></script>
+  <link href="mma_blog_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="mma_blog_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="mma_blog_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="mma_blog_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="mma_blog_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="mma_blog_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="mma_blog_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Projects","authors":[]}
+{"title":"Probabilistic Modeling with Mathematica","description":"Using Mathematica to do some cool data science things","authors":[],"publishedDate":"2022-10-16T00:00:00.000-04:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a href="index.html" class="title">Peter's Stuff</a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="blog.html">Blogs</a>
-<a href="projects.html">Projects</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).on("load", function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      page_category = decodeURIComponent(page_category)
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-apply-limit l-page">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Projects">Projects</h1>
-<a href="posts/why_not_r/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Oct. 16, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Why Not R</h2>
-<div class="dt-tags"></div>
-<p>Why not use R for all courses in Commerce (BComm and MBA)?</p>
-</div>
-</a>
-<a href="posts/mma_in_ds/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Oct. 16, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img src="posts/mma_in_ds/mma_blog_plot.png"/>
-</div>
-<div class="description">
-<h2>Probabilistic Modeling with Mathematica</h2>
-<div class="dt-tags"></div>
-<p>Using Mathematica to do some cool data science things</p>
-</div>
-</a>
-<a href="posts/ordinal_regression/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">April 30, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Ordinal Regression</h2>
-<div class="dt-tags"></div>
-<p>An Introduction to Ordinal Regression</p>
-</div>
-</a>
-<a href="posts/betareg/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">April 17, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Beta Regression</h2>
-<div class="dt-tags"></div>
-<p>An Introduction to Beta Regression</p>
-</div>
-</a>
-<a href="posts/greta_and_causact/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 26, 2021</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Greta and Causact</h2>
-<div class="dt-tags"></div>
-<p>Bayesian Models with Greta and Causact</p>
-</div>
-</a>
-<a href="posts/ponies/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 26, 2021</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Ponies</h2>
-<div class="dt-tags"></div>
-<p>Data science and horse racing</p>
-</div>
-</a>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Projects</h1>
+<h1>Probabilistic Modeling with Mathematica</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>Using Mathematica to do some cool data science things</p></p>
 </div>
 
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre
+<h1 id="introduction">Introduction</h1>
+<p>Python, R and SQL are the most commonly used tools by data
+scientists. But there is another tool that can be incredibly useful on
+occasion: <a
+href="https://www.wolfram.com/mathematica/">Mathematica</a>.</p>
+<p>Mathematica has since added all sorts of <a
+href="https://www.wolfram.com/featureset/data-science/?source=nav">data
+science features</a>, but what I show here is just some of the cool
+thing you can do with probabilistic modeling.</p>
+<p>The following is a minor update of a blog I did many years ago - I’m
+moving it here from Wordpress, and taking the opportunity to add a bit
+more info.</p>
+<p>It was originally about trying to calculate the probability of a
+complicated system failing, involving many components each with their
+own probabilities, parameters, etc. At the time (it was a real project
+at work, here sufficiently generalized so as to anonymize it) I did not
+really believe that Mathematica could help. I planned to simulate it,
+but figured I’d give it a shot for fun.</p>
+<p>Here we go….</p>
+<h1 id="probability-modeling-with-mathematica">Probability Modeling with
+Mathematica</h1>
+<p>At some point, I will write a post about the utility of modeling in
+data science: how the act of creating a realistic model of the process
+that generates the data can alert you to wonky data, to which features
+of your data really matter for the problem at hand, and how the model
+can be used in Bayesian analysis.</p>
+<p>But in this post, I want only to demonstrate how easy it is to create
+models in Mathematica that would be ridiculously difficult, time
+consuming, and error prone to do by hand.</p>
+<p>This model is an abstraction of a real problem I worked on, and the
+names and parameters have been changed to protect the innocent.</p>
+<p>Notation conventions in this example:</p>
+<ul>
+<li><p>any variable that ends with a <em>D</em> is a distribution. Not a
+sample from a distribution, or a mean of the distribution, but the
+distribution itself.</p></li>
+<li><p>any variable that ends in an <em>X</em> is a random
+variable</p></li>
+<li><p>the symbol <em>≈</em> indicates <em>distributed as</em>. So,
+<em>fX≈fD</em> means that the random variable <em>fX</em> has
+distribution <em>fD</em>. If you are trying to reproduce this yourself,
+sometimes copying this symbol from the web gets wonky - enter it by
+hitting the escape key, then typing <em>dist</em>, then hitting the
+escape key again</p></li>
+<li><p>anything that ends in an <em>R</em> is a result calculated
+earlier</p></li>
+</ul>
+<p>If you are going to do this kind of modeling, it helps to have such
+conventions so that it is obvious to you what is a distribution, what is
+a random variable, what is a number, etc.</p>
+<p>To the code/model!</p>
+<pre><code>aD = ExponentialDistribution[1/10]</code></pre>
+<p>This line defines <em>aD</em> to be an exponential distribution with
+parameter <em>1/10</em>. No surprise there!</p>
+<pre><code>bD = ParameterMixtureDistribution[PoissonDistribution[aX/3], aX ≈ aD];</code></pre>
+<p>This line defines <em>bD</em> to be a Poisson distribution, where the
+parameter of the distribution is another random variable, <em>aX/3</em>,
+where <em>aX</em> has distribution <em>aD</em> (exponential, as defined
+above). So, we are building a hierarchical model here.</p>
+<pre><code>cR = Probability[bX &gt;= 1, bX ≈ bD];</code></pre>
+<p>Here we calculate the probability that a <em>bD</em> distributed
+random variable is greater than or equal to <em>1</em>.</p>
+<pre><code>dD = BinomialDistribution[99, cR];</code></pre>
+<p>And this line defines <em>dD</em> to be a binomial distribution with
+parameters <em>99</em> and <em>cR</em>, which we calculated above.</p>
+<pre><code>eD = TransformedDistribution[100*Binomial[dX, 2]/Binomial[100, 2], dX ≈ dD];</code></pre>
+<p><em>eD</em> is the distribution of a more complicated random
+variable: <em>dX</em> is distributed according to <em>dD</em>, then we
+apply a somewhat complicated function to it. <em>eD</em> is its
+distribution.</p>
+<pre><code>fD = TransformedDistribution[ eX*aX, {eX ≈ eD, aX ≈ aD}];</code></pre>
+<p>Here <em>fD</em> is the distribution of the product of two (assumed
+independent) random variables, <em>eX</em> and <em>aX</em>, distributed
+according to <em>eD</em> and <em>aD</em> respectively.</p>
+<pre><code>gD = TransformedDistribution[2^10/(1 + dX), dX ≈ dD];</code></pre>
+<p>This line defines <em>gD</em> to be the distribution of a constant
+divided by <em>1+dX</em>, where <em>dX</em> is a <em>dD</em> distributed
+random variable.</p>
+<pre><code>hR = Probability[fX &gt; 100, fX ≈ fD];</code></pre>
+<p><em>hR</em> is the probability that an <em>fD</em> distributed random
+variable is greater than a large constant.</p>
+<pre><code>iD = ParameterMixtureDistribution[BinomialDistribution[Round[gX], hR], gX ≈ gD];</code></pre>
+<p>This line defines <em>iD</em> to be a binomial distribution, with the
+second parameter being <em>hR</em> as calculated above. To get the first
+parameter, we have a <em>gD</em> distributed random variable, and then
+we round it to the nearest integer.</p>
+<p>Now that we have our final distribution, we can treat it pretty much
+as any build in distribution. I say pretty much because, for example,
+Mathematica does not know how to determine its quantiles, etc.</p>
+<p>But we can do this:</p>
+<pre><code>Mean[iD]</code></pre>
+<p>and if I do I will get about 12,500 characters of output, the exact
+value. But if I do</p>
+<pre><code>Mean[iD]//N</code></pre>
+<p>I get 11.2276.</p>
+<p>Or I can do this:</p>
+<pre><code>Plot[CDF[iD, x], {x, 0, 50}]</code></pre>
+<p><img src="mma_blog_plot.png" width="433" /></p>
+<p>or many other things.</p>
+<p>This is very cool for a dozen lines of code.</p>
+<p>If you want some real tedious pain, try to do this by hand, and let
+me know if you succeed!</p>
+<h1 id="what-functions-do-these-functions-do">What functions do these
+functions do?</h1>
+<p>Most of them are obvious from the name of the function (and there are
+many more - including calculating conditional probabilities and
+expectations!), but I was initially confused about what these two
+do:</p>
+<ul>
+<li><p><em>ParameterMixtureDistribution</em> calculates the distribution
+of a random variables where one or more of the parameters of the
+distributions are from other distributions.</p></li>
+<li><p><em>TransformedDistribution</em> calculates the distribution of
+random variables that are functions of other random variables.</p></li>
+</ul>
+<h1 id="last-words">Last words</h1>
+<p>To me, it is astounding that Mathematica can calculate
+this…<em>calculate</em>, not estimate or simulate, but do all the
+manipulations that you would do on paper if you had the time and never
+made an error.</p>
+<p>You can do some of these kind of manipulations on <a
+href="https://www.wolframalpha.com/">WolframAlpha</a> for free, but
+perhaps not all, and your computation time will be limited.
+Alternatively, you can download the <a
+href="https://www.wolfram.com/engine/?source=nav">WolframEngine</a> and
+make it work with Jupyter (I did that several years ago - don’t remember
+how, but it wasn’t a big deal).</p>
+<h1 id="bonus-material">Bonus Material</h1>
+<p>The Mathematics symbol for conditional probability is, well, a weird
+thing you enter by hitting the escape key, then <em>cond</em>, then the
+escape key again. Alternatively, you can use the full input form, as we
+do here because the symbol did not come across cleanly.</p>
+<h2 id="example-1">Example 1</h2>
+<pre><code>aD = ExponentialDistribution[m];
+Probability[Conditioned[x &gt; a + b, x &gt; a], Distributed[x, aD], Assumptions -&gt; a &gt; 0 &amp;&amp; b &gt; 0]</code></pre>
+<p>which yields</p>
+<pre><code>E^((-b)*m)</code></pre>
+<p>and</p>
+<pre><code>Probability[x &gt; b, Distributed[x, aD], Assumptions -&gt; b &gt; 0]</code></pre>
+<p>which also yields</p>
+<pre><code>E^((-b)*m)</code></pre>
+<p>which is a well known property of the exponential distribution.</p>
+<h2 id="example-2">Example 2</h2>
+<p>Another example:</p>
+<pre><code>TransformedDistribution[ x + y, {Distributed[x, PoissonDistribution[m1]], Distributed[y, PoissonDistribution[m2]]}]</code></pre>
+<p>yields</p>
+<pre><code>PoissonDistribution[m1 + m2]</code></pre>
+<p>also</p>
+<pre><code>n=13;
+TransformedDistribution[Total[Array[x, n]], Array[Distributed[x[#], PoissonDistribution[a]] &amp;, n]]</code></pre>
+<p>yields</p>
+<pre><code>PoissonDistribution[13*a]</code></pre>
+<h2 id="example-3">Example 3</h2>
+<p>One final example (thanks to <a
+href="https://mathematica.stackexchange.com/"
+class="uri">https://mathematica.stackexchange.com/</a>)</p>
+<pre><code>n = 13; 
+TransformedDistribution[Min[Array[x, n]], Table[Distributed[x[i], ExponentialDistribution[m]], {i, n}]]</code></pre>
+<p>gives</p>
+<pre><code>ExponentialDistribution[13*m]</code></pre>
+<h1 id="appendices">Appendices</h1>
+<details>
+<summary>
+Info
+</summary>
+<p>I’m using Mathematica Home Edition, v13.1 on a Mac OS 12.6.</p>
+</details>
+<div class="sourceCode" id="cb23"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
