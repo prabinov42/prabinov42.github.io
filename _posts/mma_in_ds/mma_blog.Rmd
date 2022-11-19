@@ -2,7 +2,7 @@
 title: "Probabilistic Modeling with Mathematica"
 description: |
   Using Mathematica to do some cool data science things
-date: 2022-10-16
+date: 2022-11-19
 output:
   distill::distill_article:
     self_contained: false
