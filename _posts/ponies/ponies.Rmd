@@ -16,4 +16,4 @@ A million years ago I did a series of posts about data science and horse racing.
 
 I cleaned it up a bit and migrated it from Wordpress to [here](https://github.com/prabinov42/ponies_blog/blob/main/ponies_blog.md).
 
-You can still see the [old version ](https://datascienceottawa.wordpress.com/ponies/) for a while.
+![](ponies.png)
