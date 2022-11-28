@@ -2,7 +2,7 @@
 title: "Ponies"
 description: |
   Data science and horse racing
-date: 2021-12-26
+date: 2022-11-28
 output:
   distill::distill_article:
     self_contained: false
@@ -17,4 +17,4 @@ A million years ago I used horse racing as a demonstration domain for my student
 
 Be forewarned - the way to make money at the track is to own the track - not to bet on the horses!
 
-![](ponies.png)
+![](ponies_plot.png)

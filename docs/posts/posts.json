@@ -1,5 +1,17 @@
 [
   {
+    "path": "posts/ponies/",
+    "title": "Ponies",
+    "description": "Data science and horse racing",
+    "author": [],
+    "date": "2022-11-28",
+    "categories": [],
+    "contents": "\nA million years ago I used horse racing as a demonstration domain for\nmy students who were learning to use R to do data science. It was a\nconvenient topic because it requires very little prior knowledge. I then\n(during the lock-downs) wrote a series of posts about this project. I\nhave since cleaned it up a bit and migrated it from Wordpress to here.\nBe forewarned - the way to make money at the track is to own the\ntrack - not to bet on the horses!\n\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-11-28T12:32:11-05:00",
+    "input_file": "ponies.knit.md"
+  },
+  {
     "path": "posts/mma_in_ds/",
     "title": "Probabilistic Modeling with Mathematica",
     "description": "Using Mathematica to do some cool data science things",
@@ -58,17 +70,5 @@
     "preview": {},
     "last_modified": "2022-11-13T09:41:15-05:00",
     "input_file": {}
-  },
-  {
-    "path": "posts/ponies/",
-    "title": "Ponies",
-    "description": "Data science and horse racing",
-    "author": [],
-    "date": "2021-12-26",
-    "categories": [],
-    "contents": "\nA million years ago I used horse racing as a demonstration domain for\nmy students who were learning to use R to do data science. It was a\nconvenient topic because it requires very little prior knowledge. I then\n(during the lock-downs) wrote a series of posts about this project. I\nhave since cleaned it up a bit and migrated it from Wordpress to here.\nBe forewarned - the way to make money at the track is to own the\ntrack - not to bet on the horses!\n\n\n\n\n",
-    "preview": {},
-    "last_modified": "2022-11-28T12:25:43-05:00",
-    "input_file": "ponies.knit.md"
   }
 ]
