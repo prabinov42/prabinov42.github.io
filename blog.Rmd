@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 # Introducing...the full-stat data scientist{#fullstat}
-`r lubridate::today()`
+2022-11-13
 
 I have been thinking about different kinds of data scientists, and I think we need a new term for some: the __full-stat__ data scientist. 
 
@@ -52,4 +52,25 @@ Both can be incredibly valuable to your organization. Full-stack data scientists
 
 Note that this does not mean a full-stat data scientist will not know sql, nor that a full-stack can't do a Bayesian analysis - just that their expertise, experience and mindset is generally in their own camp.
 
+
+# A really fun project{#fun_project}
+2022-11-20
+
+I have recently been asked what kind of projects I like to work on. You can see some under the 'Projects' menu. Here I describe one form work, but all the names have been changed to protect the innocent.
+
+The project was about resource allocation. It us a very general problem, but as an example consider users who can take many paths through a system, and depending on what they do may need many different resources, like images, files, computations performed, or queries run. Each of these resources may take a while to prepare and if we knew what the user was going to do next, we could get a head start on preparing whatever the user was going to need next - but of course we don't want to do work for nothing and prepare resources they do not want or need.
+
+My first task was to try to figure out some basic algorithms for predicting what actions the user would take next, so that we could see how the scheme could work in simple case, and then enhance it later where needed.
+
+I used a Markov chain model to predict the users next actions, which means that we model the user's next step only as a function of where they currently are in the user journey. Note that this can be extended, and was in several experiments. Then I tested it against some real user data we had. In some cases the predictions were pretty good, and for others, terrible. I tried to relate the difference in performance of the predictions to characteristics of the users and their current state (ie. what actions they had already taken) , with only a little success. I was hoping that there would be some easily identifiable subset that had good predictions, and then we could prepare the resources for just those users and/or actions and not the others.
+
+To try to figure out why some of the predictions were good and other bad, I developed a model that basically looked like being at a casino. Each step in the user journey consisted of a bag of resources and each of these items had a 'cost' : the amount of computation it would take to prepare them. So, we could think of the problem as betting on specific items, and then if they are actually used in the users next step then we 'win' the savings in computation, because then the user does not have to wait for them to complete. But if the user does not follow our prediction, then that computation is wasted, and we lose. 
+
+Around the same time, the team implemented a preliminary version, and we could evaluate its performance. It agreed with the analysis work I had already done. Again, I tried to zero in some scenarios where the performance was good, but again, that proved difficult.
+
+So I went back to modelling. Some further analysis, followed by some hand-waving scaling limits (it wasn't completely rigorous), yielded an interesting and very simple equation that described the relationship between the cost and the profit for various scenarios. In retrospect the  conclusion was obvious: the concept could only work well in situations where the flow through the system was highly linear, with few choices at each stage.
+
+The business conclusion was then to only look for resources that were involved in a large subset of the likely next steps, and to ready only those that had a high probability of being used at a small cost - which unfortunately also limited the profit.
+
+To me, this project was a blast. It had non-trivial statistics, modelling, real-world impact, and ultimately a simple explanation. Of course, it would have been even more fun if the scheme had worked better!
 
