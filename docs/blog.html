@@ -2072,6 +2072,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="blog.html">Blogs</a>
+<a href="snippets.html">Snippets</a>
 <a href="projects.html">Projects</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
@@ -2090,6 +2091,146 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <div class="d-article">
+<h1 id="maxims">Maxims of Data Science</h1>
+<p>2022-12-01</p>
+<p>One of the great things about teaching data science (or any subject)
+is that it forces you to distill everything down to just the essentials.
+So here are my maxims of data science.</p>
+<ul>
+<li>All your data is crap</li>
+<li>Using just one number is lying</li>
+<li>Speak so the other person understands</li>
+<li>Live by the 80/20 rule</li>
+<li>It must be reproducible</li>
+</ul>
+<h2 id="all-your-data-is-crap">All your data is crap</h2>
+<p>I am not saying that your data is worthless. I am saying that any
+reasonable data set that is not from a text book, or pre-cleansed, has
+glitches in it….and if you haven’t found them you haven’t looked hard
+enough. Plot, compute summary statistics, look at the data, swim in it.
+Let it seep into every pore.</p>
+<p>One of the first things you do as a data scientist with a new data
+set is find these glitches, for they can ruin your analysis. Some of
+them may be easy to explain and remedy (eg, using -99 as a code to
+indicate a missing value), while others may only reveal themselves after
+a long game of hide an seek. One example of the latter was a dataset
+where packet sizes looked to be periodic…eventually it was discovered
+that a part of the time stamp field was being written to the packet size
+field.</p>
+<p>Which leads to the next point - when you finally figure out what
+caused the glitch, it is your responsibility to communicate it
+appropriately and make sure the same error can’t happen again.</p>
+<p>There are, of course, times where you can not discover the cause of a
+glitch. You may not even be certain that there is in fact a glitch, but
+some element in the data sure looks weird. What do you do? You assess
+the impact of the glitch on any conclusions you reach from the data set.
+If the glitch does not impact the decision, or the cost of a wrong
+decision is low, then you can simply document it. On the other hand if
+it does impact what decision you’d make, then it needs further
+exploration.</p>
+<h2 id="using-just-one-number-is-lying">Using just one number is
+lying</h2>
+<p>Anything other than the most trivial of problems can not be described
+by just one number. Don’t be afraid to poke the tails of the
+distribution of your data to see what your best and worst customers are
+experiencing. Quantify the variability of your results. A new version of
+a system that is 5% faster on average may be a terrible thing to deploy
+if half the customers get worse performance, or if the 5% is really 5%
++/- 30%.</p>
+<p>Of course you have to figure out the best way to explain that to your
+stakeholders….</p>
+<h2 id="speak-so-the-other-person-understands">Speak so the other person
+understands</h2>
+<p>All your work is for nothing of the recipient (stakeholder) does not
+understand the impact of what your saying. It is the data scientists
+responsibility to learn the business language and discuss the results in
+a way the stakeholder understands their importance - otherwise all your
+work, even the most earth-shattering results, has all been for
+nothing.</p>
+<h2 id="live-by-the-8020-rule">Live by the 80/20 rule</h2>
+<p>The 80/20 rule is the idea that for many things in life, 20% of the
+effort gets you 80% of the value. And when doing data science that is
+how you should be thinking - how good does the answer need to be?</p>
+<p>Of course it is not necessarily 80/20. There are many examples where
+80% accuracy is not enough (think medical tests, maybe personal
+finances, planes flying, etc) and for those you will of course do more
+work to get a better answer.</p>
+<p>But the point is do not spend $100 of effort for something that is
+only worth $1 (unless you are doing it for fun, to learn something new,
+or a variety of other reasons that, in fact, increase the value to you
+from $1)</p>
+<h2 id="it-must-be-reproducible">It must be reproducible</h2>
+<p>Nothing loses hard-won credibility for a data scientist faster than
+to re-doing an analysis with very similar numbers and get wildly
+different answers - so you then rerun with the original numbers and get
+answers different from your original analysis. How did that happen? If
+all you can reply with is a shrug, you have lost your audience.</p>
+<p>Reproducibility prevents that. Most modern data science environments
+(think R/RStudio/Knitr) allow you to create a document that can rerun
+the analysis form beginning to end with the click of a button, and the
+files that are used can be easily version controlled (think git).</p>
+<p>Your future self will thank you when you need to redo the analysis in
+a few months with slightly different data and you don’t have to remember
+every fiddly step because it is all in your code/document.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Data science, done well, can</p>
+<h1 id="fun_project">A really fun project</h1>
+<p>2022-11-20</p>
+<p>I have recently been asked what kind of projects I like to work on.
+You can see some under the ‘Projects’ menu. Here I describe one from
+work, but all the names have been changed to protect the innocent.</p>
+<p>The project was about resource allocation. It us a very general
+problem, but as an example consider users who can take many paths
+through a system, and depending on what they do may need many different
+resources, like images, files, computations performed, or queries run.
+Each of these resources may take a while to prepare and if we knew what
+the user was going to do next, we could get a head start on preparing
+whatever the user was going to need next - but of course we don’t want
+to do work for nothing and prepare resources they do not want or
+need.</p>
+<p>The first task was to try to figure out some basic algorithms for
+predicting what actions the user would take next, so that we could see
+how the scheme could work in simple cases, and then enhance later where
+needed.</p>
+<p>I used a Markov chain model to predict the users next actions, which
+means that we model the user’s next step only as a function of where
+they currently are in the user journey. Note that this can be extended,
+and was in several experiments. Then I tested it against some real user
+data we had. In some cases the predictions were pretty good, and for
+others, terrible. I tried to relate the difference in performance of the
+predictions to characteristics of the users and their current state (ie.
+what actions they had already taken) , with only a little success. I was
+hoping that there would be some easily identifiable subset that had good
+predictions, and then we could prepare the resources for just those
+users and/or actions and not the others.</p>
+<p>To try to figure out why some of the predictions were good and other
+bad, I developed a model that basically looked like being at a casino.
+Each step in the user journey consisted of a bag of resources and each
+of these items had a ‘cost’ : the amount of computation it would take to
+prepare them. So, we could think of the problem as betting on specific
+items, and then if they are actually used in the users next step then we
+‘win’ the savings in computation, because then the user does not have to
+wait for them to complete. But if the user does not follow our
+prediction, then that computation is wasted, and we lose.</p>
+<p>Around the same time, the team implemented a preliminary version, and
+we could evaluate its performance. It agreed with the analysis work I
+had already done. Again, I tried to zero in some scenarios where the
+performance was good, but again, that proved difficult.</p>
+<p>So I went back to modelling. Some further analysis, followed by some
+hand-waving scaling limits (it wasn’t completely rigorous), yielded an
+interesting and very simple equation that described the relationship
+between the cost and the profit for various scenarios. In retrospect the
+conclusion was obvious: the concept could only work well in situations
+where the flow through the system was highly linear, with few choices at
+each stage.</p>
+<p>The business conclusion was then to only look for resources that were
+involved in a large subset of the likely next steps, and to ready only
+those that had a high probability of being used at a small cost - which
+unfortunately also limited the profit.</p>
+<p>To me, this project was a blast. It had non-trivial statistics,
+modelling, real-world impact, and ultimately a simple explanation. Of
+course, it would have been even more fun if the scheme had worked
+better!</p>
 <h1 id="fullstat">Introducing…the full-stat data scientist</h1>
 <p>2022-11-13</p>
 <p>I have been thinking about different kinds of data scientists, and I
