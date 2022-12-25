@@ -1,0 +1,76 @@
+---
+title: "Snippets"
+description: |
+  Little bits of code. 
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+This is a place where I will put little bits of useful code with examples...for you to learn from, and for me to remember!  
+
+Unfortunately, I have lost the references to most of them, so to those of you out there who figured these out first, thanks & sorry!
+
+
+# Pipelining a wildcard in a filter{#wildcardFilter}
+2022-12-25
+
+So here is the scenario. I have a data frame like so:
+
+```{r, echo=TRUE}
+df <- tribble(
+  ~doc, ~val,
+  'B',1,
+  'B',2,
+  'BC',1,
+  'BC',4,
+  'D',5
+)
+
+df
+```
+
+and I want to do a filter in a long sequence of code. But I want to be able to find all rows if the user enters 'ALL', or just the matching rows if they enter something else. So 'ALL' acts like a wildcard.
+
+For example, if the user enters (say into a variable _docname_) _B_, I want the pipelline to return the first two rows. But if they enter _ALL_, I want all rows returned.
+
+Here is how to do it.
+
+```{r, echo=TRUE}
+docname<-'B'
+df %>% {if(docname!='ALL') filter(., doc == docname) else .} 
+```
+
+```{r, echo=TRUE}
+docname<-'BC'
+df %>% {if(docname!='ALL') filter(., doc == docname) else .} 
+```
+
+```{r, echo=TRUE}
+docname<-'ALL'
+df %>% {if(docname!='ALL') filter(., doc == docname) else .} 
+```
+
+
+
+
+# Labelling in latex{#latexLabelling}
+2022-12-25
+
+When writing a mathy document, it can be helpful to explain what each part of an equation means. _underbrace_ and _text_ are your friends.
+
+Here is an example
+
+
+$$y=\underbrace{3 \alpha}_\text{What alpha means}\times \underbrace{f\left( x^3\right)}_\text{why x cubed?}$$
+The latex is:
+```
+y=\underbrace{3 \alpha}_\text{What alpha means}\times \underbrace{f\left( x^3\right)}_\text{why x cubed?}
+```
+
+
+
+
+

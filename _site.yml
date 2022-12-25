@@ -11,6 +11,8 @@ navbar:
       href: about.html
     - text: "Blogs"
       href: blog.html
+    - text: "Snippets"
+      href: snippets.html
     - text: "Projects"
       href: projects.html      
 output: distill::distill_article
