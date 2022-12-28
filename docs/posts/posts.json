@@ -66,9 +66,9 @@
     "author": [],
     "date": "2021-12-26",
     "categories": [],
-    "contents": "\nThe purpose of this project is to illustrate how to use the causact library to build some simple\nmodels. Causact allows you to create Bayesian models, and uses the greta library to do the\ncomputations. Well, not really - greta just sets them up, and uses\nTensorFlow underneath.\nThe cool thing is with causact you can describe your model as a\ngraph, like this: \nand it automatically generates the greta code which you can run to\nget estimates of everything.\nGet\nstarted!\nMore stuff to come soon about:\n- multilevel models\n- priors\n- posterior predictive distributions.\n\n\n\n",
+    "contents": "\nThe purpose of this project is to illustrate how to use the causact library to build some simple\nmodels. Causact allows you to create Bayesian models, and uses the greta library to do the\ncomputations. Well, not really - greta just sets them up, and uses\nTensorFlow underneath.\nThe cool thing is with causact you can describe your model as a\ngraph, like this: \nand it automatically generates the greta code which you can run to\nget estimates of everything.\nGet\nstarted!\nAnd here\nis some causact translation of greta examples.\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-11-13T09:41:15-05:00",
-    "input_file": {}
+    "last_modified": "2022-12-28T09:26:01-05:00",
+    "input_file": "greta_and_causact.knit.md"
   }
 ]

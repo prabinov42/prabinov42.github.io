@@ -21,9 +21,7 @@ and it automatically generates the greta code which you can run to get estimates
 
 [Get started!](https://github.com/prabinov42/Greta_Causact_Exploration/blob/main/greta_causact_exploration.md)
 
-More stuff to come soon about:  
-- multilevel models  
-- priors  
-- posterior predictive distributions.  
+And [here](https://github.com/prabinov42/greta_causact_examples/blob/main/greta_causact_examples.md) is some causact translation of greta examples.
+
 
 
