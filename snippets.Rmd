@@ -70,6 +70,16 @@ The latex is:
 y=\underbrace{3 \alpha}_\text{What alpha means}\times \underbrace{f\left( x^3\right)}_\text{why x cubed?}
 ```
 
+For a slightly better looking version with just a bit more complication:
+
+$$ y = \underbrace{3 \alpha}_{\text{What } \alpha \text{ means}} \times \underbrace{f\left( x^3\right)}_{\text{why } x^3 \text{?}} $$
+
+The latex here is:
+```
+y = \underbrace{3 \alpha}_{\text{What } \alpha \text{ means}} \times \underbrace{f\left( x^3\right)}_{\text{why } x^3 \text{?}}
+```
+
+
 
 
 
