@@ -58,7 +58,7 @@ Your future self will thank you when you need to redo the analysis in a few mont
 
 ## Conclusion
 
-Data science, done well, can 
+Data science, done well, can be a force for good. Done poorly it just makes the world more confused. Keeping these few simple guidelines in mind can help you do the former.
 
 
 # A really fun project{#fun_project}
