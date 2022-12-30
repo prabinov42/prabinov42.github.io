@@ -2126,7 +2126,7 @@ sorry!</p>
 be able to find all rows if the user enters ‘ALL’, or just the matching
 rows if they enter something else. So ‘ALL’ acts like a wildcard.</p>
 <p>For example, if the user enters (say into a variable
-<em>docname</em>) <em>B</em>, I want the pipelline to return the first
+<em>docname</em>) <em>B</em>, I want the pipeline to return the first
 two rows. But if they enter <em>ALL</em>, I want all rows returned.</p>
 <p>Here is how to do it.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2168,6 +2168,27 @@ two rows. But if they enter <em>ALL</em>, I want all rows returned.</p>
 4 BC        4
 5 D         5</code></pre>
 </div>
+<p>Further discussions with <a
+href="https://cbelanger.netlify.app/">Chris</a> have lead me to conclude
+that the best way to do this is to use anonymous functions like the
+following, rather than the curly bracket trick:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df</span> |&gt; <span class='op'>(</span>\<span class='op'>(</span><span class='va'>.</span><span class='op'>)</span> <span class='kw'>if</span><span class='op'>(</span><span class='va'>docname</span><span class='op'>!=</span><span class='st'>'ALL'</span><span class='op'>)</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>.</span>, <span class='va'>doc</span> <span class='op'>==</span> <span class='va'>docname</span><span class='op'>)</span> <span class='kw'>else</span> <span class='va'>.</span><span class='op'>)</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 5 × 2
+  doc     val
+  &lt;chr&gt; &lt;dbl&gt;
+1 B         1
+2 B         2
+3 BC        1
+4 BC        4
+5 D         5</code></pre>
+</div>
+<p>This way composes well with other steps in a pipeline and does not
+require using helper functions that litter the code. And it works with
+both %&gt;% and |&gt;.</p>
 <h1 id="latexLabelling">Labelling in latex</h1>
 <p>2022-12-25</p>
 <p>When writing a mathy document, it can be helpful to explain what each
@@ -2185,7 +2206,7 @@ complication:</p>
 } x^3 \text{?}} \]</span></p>
 <p>The latex here is:</p>
 <pre><code>y = \underbrace{3 \alpha}_{\text{What } \alpha \text{ means}} \times \underbrace{f\left( x^3\right)}_{\text{why } x^3 \text{?}}</code></pre>
-<div class="sourceCode" id="cb7"><pre
+<div class="sourceCode" id="cb8"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

@@ -34,7 +34,7 @@ df
 
 and I want to do a filter in a long sequence of code. But I want to be able to find all rows if the user enters 'ALL', or just the matching rows if they enter something else. So 'ALL' acts like a wildcard.
 
-For example, if the user enters (say into a variable _docname_) _B_, I want the pipelline to return the first two rows. But if they enter _ALL_, I want all rows returned.
+For example, if the user enters (say into a variable _docname_) _B_, I want the pipeline to return the first two rows. But if they enter _ALL_, I want all rows returned.
 
 Here is how to do it.
 
@@ -53,6 +53,13 @@ docname<-'ALL'
 df %>% {if(docname!='ALL') filter(., doc == docname) else .} 
 ```
 
+Further discussions with [Chris](https://cbelanger.netlify.app/) have lead me to conclude that the best way to do this is to use anonymous functions like the following, rather than the curly bracket trick:
+
+```{r, echo=TRUE}
+df |> (\(.) if(docname!='ALL') filter(., doc == docname) else .)()
+```
+
+This way composes well with other steps in a pipeline and does not require using helper functions that litter the code. And it works with both %>% and |>.
 
 
 
