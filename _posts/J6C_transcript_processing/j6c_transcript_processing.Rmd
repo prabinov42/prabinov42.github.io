@@ -1,0 +1,20 @@
+---
+title: "January 6 Commitee Transcript Processing"
+description: |
+  Some basic text processing of teh transcripts
+date: 2023-01-05
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+A bunch (149) transcripts from the January 6 Committee were posted. Time for some text processing!
+
+This is just preliminary stuff, to help you get started - nothing earth shattering has been discovered.
+
+[Have a look](https://github.com/prabinov42/J6CTranscriptProcessing/blob/main/J6C_v1.md)
+
