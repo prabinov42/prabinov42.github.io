@@ -1,7 +1,7 @@
 ---
 title: "January 6 Commitee Transcript Processing"
 description: |
-  Some basic text processing of teh transcripts
+  Some basic text processing of the transcripts
 date: 2023-01-05
 output:
   distill::distill_article:

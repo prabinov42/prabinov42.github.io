@@ -2,14 +2,14 @@
   {
     "path": "posts/J6C_transcript_processing/",
     "title": "January 6 Commitee Transcript Processing",
-    "description": "Some basic text processing of teh transcripts",
+    "description": "Some basic text processing of the transcripts",
     "author": [],
     "date": "2023-01-05",
     "categories": [],
     "contents": "\nA bunch (149) transcripts from the January 6 Committee were posted.\nTime for some text processing!\nThis is just preliminary stuff, to help you get started - nothing\nearth shattering has been discovered.\nHave\na look\n\n\n\n",
     "preview": {},
-    "last_modified": "2023-01-05T11:30:54-05:00",
-    "input_file": {}
+    "last_modified": "2023-01-05T11:33:48-05:00",
+    "input_file": "j6c_transcript_processing.knit.md"
   },
   {
     "path": "posts/ponies/",
