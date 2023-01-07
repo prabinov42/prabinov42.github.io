@@ -5,8 +5,8 @@
       "title": "About me",
       "description": "I have been doing data science since long before data science was a thing. ",
       "author": [],
-      "contents": "\nI have applied data science to telecom while at Alcatel/Nokia, BlackBerry, Akamai; fintech while at Ario/Thinking Capital; and\neCommerce while at Shopify. Most\nrecently, I worked at Meta, on improving\nvideo recommendations.\nI also teach an intro to data science course to MBA students at University of Ottawa.\nI used to co-lead Data for\nGood in Ottawa: volunteer data scientists trying to make Ottawa\nbetter by helping local charities. You can see a bit more about how D4G\nOttawa used to work, and largely still does, here.\nIt is a great way to improve your data science skills, meet cool people,\nand help the city.\nBefore Alcatel, in reverse chronological order: I worked at a\nnetworking start-up (Sedona networks); managed the IT dept for the\nLiberal Party of Canada; did IT consulting for ISA Corporation;\ndeveloped software for gas turbine engine test cells at MDS Aero\nSupport; and worked at Lafarge, first as a strategic planning analyst,\nand later also doing IT support & some coding.\nI have a PhD in Probability and Statistics, my thesis was an abstract\nversion of figuring out how big a reordering buffer was needed on a\nrouter - which lead to figuring out some properties of random Mallows\npermutations. A not-so-technical overview of part of it is here.\nMy M.Sc. was about how to statistically estimate the effective\nbandwidth (which is a measure of resource usage) of various telecom\nnetwork traffic streams.\nYou can find me on LinkedIn, Twitter, and now Mastodon.\n\n\n\n",
-      "last_modified": "2022-12-25T12:35:39-05:00"
+      "contents": "\nI have applied data science to telecom while at Alcatel/Nokia, BlackBerry, Akamai; fintech while at Ario/Thinking Capital; and eCommerce while at Shopify. Most recently, I worked at Meta, on improving video recommendations.\nI also teach an intro to data science course to MBA students at University of Ottawa.\nI used to co-lead Data for Good in Ottawa: volunteer data scientists trying to make Ottawa better by helping local charities. You can see a bit more about how D4G Ottawa used to work, and largely still does, here. It is a great way to improve your data science skills, meet cool people, and help the city.\nBefore Alcatel, in reverse chronological order: I worked at a networking start-up (Sedona networks); managed the IT dept for the Liberal Party of Canada; did IT consulting for ISA Corporation; developed software for gas turbine engine test cells at MDS Aero Support; and worked at Lafarge, first as a strategic planning analyst, and later also doing IT support & some coding.\nI have a PhD in Probability and Statistics, my thesis was an abstract version of figuring out how big a reordering buffer was needed on a router - which lead to figuring out some properties of random Mallows permutations. A not-so-technical overview of part of it is here.\nMy M.Sc. was about how to statistically estimate the effective bandwidth (which is a measure of resource usage) of various telecom network traffic streams.\nYou can find me on LinkedIn, Twitter, and/or Mastodon.\n\n\n\n",
+      "last_modified": "2023-01-07T16:00:01-05:00"
     },
     {
       "path": "blog.html",
@@ -29,7 +29,7 @@
       "title": "Projects",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2023-01-05T11:31:09-05:00"
+      "last_modified": "2023-01-05T11:33:48-05:00"
     },
     {
       "path": "snippets.html",

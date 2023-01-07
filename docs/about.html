@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -787,6 +788,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1028,10 +1030,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     position: relative;
     margin-bottom: 2.5em;
     margin-top: 1.5em;
-  }
-
-  .figure img {
-    width: 100%;
   }
 
   .figure .caption {
@@ -1863,9 +1861,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -1877,6 +1887,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1976,6 +2011,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1998,7 +2035,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2037,7 +2074,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14.1/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2086,49 +2123,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h1>About me</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>I have been doing data science since long before data science was
-a thing.</p></p>
+<p><p>I have been doing data science since long before data science was a thing.</p></p>
 </div>
 
 
 <div class="d-article">
-<p>I have applied data science to telecom while at Alcatel/<a
-href="https://www.nokia.com/">Nokia</a>, <a
-href="https://www.blackberry.com">BlackBerry</a>, <a
-href="https://www.akamai.com/">Akamai</a>; fintech while at <a
-href="https://www.thinkingcapital.ca/">Ario/Thinking Capital</a>; and
-eCommerce while at <a href="https://www.shopify.ca/">Shopify</a>. Most
-recently, I worked at <a href="www.meta.com">Meta</a>, on improving
-video recommendations.</p>
-<p>I also teach an intro to data science course to MBA students at <a
-href="https://telfer.uottawa.ca">University of Ottawa</a>.</p>
-<p>I used to co-lead <a href="https://ottawa.dataforgood.ca/">Data for
-Good in Ottawa</a>: volunteer data scientists trying to make Ottawa
-better by helping local charities. You can see a bit more about how D4G
-Ottawa used to work, and largely still does, <a
-href="https://datascienceottawa.wordpress.com/data-for-good-ottawa-intro-faq-status/">here</a>.
-It is a great way to improve your data science skills, meet cool people,
-and help the city.</p>
-<p>Before Alcatel, in reverse chronological order: I worked at a
-networking start-up (Sedona networks); managed the IT dept for the
-Liberal Party of Canada; did IT consulting for ISA Corporation;
-developed software for gas turbine engine test cells at MDS Aero
-Support; and worked at Lafarge, first as a strategic planning analyst,
-and later also doing IT support &amp; some coding.</p>
-<p>I have a PhD in Probability and Statistics, my thesis was an abstract
-version of figuring out how big a reordering buffer was needed on a
-router - which lead to figuring out some properties of random Mallows
-permutations. A not-so-technical overview of part of it is <a
-href="https://github.com/prabinov42/MiscData/blob/master/ThesisSummary1.pdf">here</a>.</p>
-<p>My M.Sc. was about how to statistically estimate the effective
-bandwidth (which is a measure of resource usage) of various telecom
-network traffic streams.</p>
-<p>You can find me on <a
-href="https://www.linkedin.com/in/peter-rabinovitch/">LinkedIn</a>, <a
-href="https://twitter.com/prabinov42">Twitter</a>, and now <a
-href="https://mastodon.social/@prabinov42">Mastodon</a>.</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>I have applied data science to telecom while at Alcatel/<a href="https://www.nokia.com/">Nokia</a>, <a href="https://www.blackberry.com">BlackBerry</a>, <a href="https://www.akamai.com/">Akamai</a>; fintech while at <a href="https://www.thinkingcapital.ca/">Ario/Thinking Capital</a>; and eCommerce while at <a href="https://www.shopify.ca/">Shopify</a>. Most recently, I worked at <a href="www.meta.com">Meta</a>, on improving video recommendations.</p>
+<p>I also teach an intro to data science course to MBA students at <a href="https://telfer.uottawa.ca">University of Ottawa</a>.</p>
+<p>I used to co-lead <a href="https://ottawa.dataforgood.ca/">Data for Good in Ottawa</a>: volunteer data scientists trying to make Ottawa better by helping local charities. You can see a bit more about how D4G Ottawa used to work, and largely still does, <a href="https://datascienceottawa.wordpress.com/data-for-good-ottawa-intro-faq-status/">here</a>. It is a great way to improve your data science skills, meet cool people, and help the city.</p>
+<p>Before Alcatel, in reverse chronological order: I worked at a networking start-up (Sedona networks); managed the IT dept for the Liberal Party of Canada; did IT consulting for ISA Corporation; developed software for gas turbine engine test cells at MDS Aero Support; and worked at Lafarge, first as a strategic planning analyst, and later also doing IT support &amp; some coding.</p>
+<p>I have a PhD in Probability and Statistics, my thesis was an abstract version of figuring out how big a reordering buffer was needed on a router - which lead to figuring out some properties of random Mallows permutations. A not-so-technical overview of part of it is <a href="https://github.com/prabinov42/MiscData/blob/master/ThesisSummary1.pdf">here</a>.</p>
+<p>My M.Sc. was about how to statistically estimate the effective bandwidth (which is a measure of resource usage) of various telecom network traffic streams.</p>
+<p>You can find me on <a href="https://www.linkedin.com/in/peter-rabinovitch/">LinkedIn</a>, <a href="https://twitter.com/prabinov42">Twitter</a>, and/or <a href="https://mastodon.social/@prabinov42">Mastodon</a>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

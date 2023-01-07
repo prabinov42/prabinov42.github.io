@@ -22,5 +22,5 @@ I have a PhD in Probability and Statistics, my thesis was an abstract version of
 
 My M.Sc. was about how to statistically estimate the effective bandwidth (which is a measure of resource usage) of various telecom network traffic streams.
 
-You can find me on [LinkedIn](https://www.linkedin.com/in/peter-rabinovitch/),  [Twitter](https://twitter.com/prabinov42), and now [Mastodon](https://mastodon.social/@prabinov42).  
+You can find me on [LinkedIn](https://www.linkedin.com/in/peter-rabinovitch/),  [Twitter](https://twitter.com/prabinov42), and/or [Mastodon](https://mastodon.social/@prabinov42).  
 
