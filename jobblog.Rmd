@@ -1,0 +1,53 @@
+---
+title: "Job Blog"
+description: |
+  Thoughts about careers. 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Many years ago I wrote a [post about getting a job in data science.](https://datascienceottawa.wordpress.com/how-to-get-a-job-as-a-data-scientist/)
+
+This one is about technical interviews for ML eng type positions.
+
+Please keep in mind that the following are my opinions only, and do not necessarily represent those of any organization I am or have been associated with. In other words, ymmv.
+
+
+# What you can expect in a technical interview
+
+
+## The interview
+
+So, you’ve been selected for a technical interview. Depending on the company, these can range from stressful to “OMG I’m dying”. We know that and so we (the interviewers) will try to help you along the way. You’ve gotten this far in the process and we want you to succeed. We want hire you and get back to making our customers happy. 
+  
+  
+- So here is the one weird trick to doing well: _listen_ to what the interviewers are saying.   
+    - The information we provide will help you frame your answer. If our question is unclear - ask questions. We want to see how you think, how you deal with ambiguity (much as you will if we hire you!)  
+        - If we tell you “don’t worry about X in this problem” and then you spend five minutes talking about X, we think either you are a poor communicator, or you do not understand what X is. Either way, that is not good.  
+- Be prepared to discuss a project from you resume in excruciating depth.   
+    - We can see from your resume the breadth of your experience - what is harder to ascertain is your depth. We want (need) people who can go deep, beyond the basics. You don’t need to be an expert in everything, but we need to see that you can go deep in something.  
+        - Frequently the interviewer will ask you to speak about a project you have worked on. This is your opportunity to describe one that you can go deep on. Be sure to explain the business context, the results achieved, and your role - not just the technology. We want to know what impact it had on the business and how you made that happen.  
+- If the position involves coding, you’ve got to be able to code.   
+    - We will typically have a small problem that should be solvable in a few minutes, and we want to see how you approach it. Talk us through your thinking and listen to the feedback we give. Get clarification when needed. We know that in the real world you will be googling things, that the IDE will auto-complete the function name, etc. It is fine in these exercises to say “I don’t remember the exact syntax of the function, but it takes a date-timestamp and returns the month as a character string - let us assume it is called ‘date_timestamp_to_month’ and go from there”. We want to se that you know such a thing exists, and what it must do. Of course, we may then say, “ok, please write your ‘date_timestamp_to_month’ function”.  
+        - You should also talk about the implications of the code you have just written - both technical and business wise. For example, if you re summarizing a data table, what are the technical issues you may encounter - how will your code perform with a million rows? A billion? What if there are missing values? And what are the business implications of these missing values? How will you handle them if they do matter, and if they don’t?  
+- As I said, in the real world you will be looking up things all the time - but during the interview is not the time. If we ask you a question and you stop to think, but we see that you are reading something, and then speak the perfect formal definition of what we just asked you - we strongly suspect you have looked something up. And if you don’t tell us that, you appear sneaky and our trust in you drops.  
+- Know about us. Read our web site. Adapt your answers to what our business problems are. You can (and should) always ask - but better to have some context on which to base the conversation. For example when talking to a company that builds IVR systems, don’t blather on about designing a GUI.  
+
+# A few words about your resume
+
+Your resume is the first thing, and perhaps the last thing, we see about you so make it count.
+
+- Review it before you send it. If your resume has typos on it, it looks like you didn’t care enough to proof read it, or are sloppy. Spell checkers are free, and asking a friend to review it costs nothing other than time, or maybe a cup of coffee.
+    - Also, make sure you spell the names of things properly. If you have gone to “John Hopkins University”, your resume ends up in the trash bin. If you went there you should know how to spell its name, which is “Johns Hopkins University”.
+- Don’t stretch the truth (it will come out). Honesty on your resume is important. If you’ve done a few courses on Coursera where the professor was from Johns Hopkins, you did not attend Johns Hopkins. If you completed a few master’s level courses, you do not have a masters degree – you simply did some master’s level courses.
+- Make it easy to see what you’ve done and what you specialize in. Make it accurate and easy to understand. Skip the grades and references (you can offer these after you get an interview)
+- What will really make you stand out is interesting projects…especially ones you have done outside of school/work because most of your work projects are likely covered by an NDA and so you can’t talk about them in any depth.
+    - But, if your project is on the mnist data set, unless your algorithm can beat the best in the world I’m not interested, I want to see something that you were interested in and dove deep into.
+- If it is on your resume, you should know it. Please don’t say on your resume the you are intermediate in C and then when we ask you a C related question reply that it is the third letter in the alphabet. If it is on your resume it is fair game, and if we ask you about something that is there and you don’t know about it, we question the accuracy of the rest of your resume.
+
+# Conclusion
+
+I repeat what I said earlier - we want to hire you. The above are just some pointers to help make that process easier for both of us.
+
