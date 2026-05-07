@@ -8,6 +8,160 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+# Automated Self-Deception: Business statistics in the age of GenAI {#selfdeception}
+2026-05-07
+
+## tl;dr
+
+Businesses need simple "Yes" or "No" answers.
+Business data scientists must build the systems that answer — properly.
+
+## Introduction
+
+Over the past few decades, statistics has converged on a set of hard-won principles:
+
+-   Define the estimand. (See "[What is your Estimand](https://bstewart.scholar.princeton.edu/publications/setting-target-precise-estimands-and-gap-between-theory-and-empirics)")
+-   Specify the causal structure (See "[Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data](https://psycnet.apa.org/record/2018-67155-004)").
+-   Separate design from analysis.
+-   Account for multiple testing.
+-   Distinguish prediction from causal inference.
+-   How to derive meaning from statistical models and coefficients (See "[Model to Meaning: How to interpret statistical models in R and Python](https://marginaleffects.com/)")
+
+Within the discipline, these are table stakes.
+
+But in most businesses, the questions sound like this:
+
+-   Is the new version better?
+-   Did the campaign work?
+-   Should we ship it?
+
+These are not requests for an estimand, they are requests for a decision.
+And increasingly, organizations do not have the time, expertise, or appetite to translate them into formal decision-theoretic problems.
+
+If statisticians insist on full procedural rigor before giving an answer, they will be bypassed.
+
+And this is already happening.
+
+## The Rise of the Instant Answer
+
+A manager can now:
+
+1.  Upload two datasets.
+2.  Ask an LLM: “Is the new version better? Yes or no answers only please.”
+3.  Receive a confident answer in 30 seconds.
+
+No caveats.
+No discussion of assumptions or their validity.
+No discussion of multiplicity.
+No estimand clarification.
+No causal diagram.
+No subtlety.
+
+Just clarity.
+
+This is profoundly attractive.
+It reduces cognitive load.
+It accelerates meetings.
+It creates decisiveness.
+
+The danger is not that these systems are foolish. The danger is that they compress ambiguity into certainty without enforcing design discipline.
+They give single-number answers to multi-dimensional problems.
+
+And if statisticians do not provide an alternative that is equally frictionless, the market will select for speed over correctness.
+
+## The Hard Truth: Business Data Scientists Must Adapt
+
+It is not realistic to expect most businesses to:
+
+-   Articulate formal utility functions.
+-   Run full decision-theoretic frameworks.
+-   Engage in explicit multi-objective optimization.
+
+The adaptation burden lies with us, the business data science community.
+
+If we are to remain relevant, we must build systems that:
+
+-   Answer the oversimplified business question.
+-   Preserve statistical rigour internally.
+-   Enforce guardrails automatically.
+-   Guide decision-makers forward.
+
+In other words, we need LLM-like systems that actually do statistics properly.
+
+## What That System Must Do
+
+Such a system would not just respond to:
+
+“Is version B better?”
+
+It would internally:
+
+-   Require declaration of a primary metric.
+-   Identify guardrail metrics.
+-   Check sample size and power.
+-   Adjust for multiplicity if multiple outcomes are examined.
+-   Estimate effect sizes with uncertainty.
+-   Detect obvious design flaws.
+
+And then output something like: "Based on the pre-specified primary metric, there is a 78% probability that Version B outperforms Version A by at least the minimum meaningful threshold. No guardrails were breached. Recommendation: ship, with continued monitoring of churn over the next 30 days."
+
+The complexity remains—but it is embedded in the system, not exposed as friction.
+
+## Beyond Reactive Answers
+
+More importantly, the system cannot be purely reactive.
+It must also guide.
+
+After analyzing an experiment, it should say:
+
+-   "Your power was low, so no results can be presented; consider increasing sample size."
+-   "You examined 12 metrics; based on previous knowledge, we have decided that metric X is the primary outcome of interest."
+-   "The effect is heterogeneous across user segments; here are the results by segment."
+-   "You are optimizing a short-term metric that negatively predicts long-term retention. Would you like to analyze the NPV??
+
+It should not merely answer the question asked, it should improve the questions being asked and then answer those.
+
+## The Real Risk: Automated Self-Deception
+
+If we fail to build these systems, organizations will still automate decision-making—but without statistical discipline.
+
+We will drift toward automated self-deception:
+
+-   Confident but fragile conclusions.
+-   Metric gaming at scale.
+-   Increasing acceptable error rates.
+-   Narrative clarity replacing rigour.
+
+And once that norm sets in, it will be difficult to reverse.
+
+## The Opportunity
+
+This is not purely defensive, there is enormous opportunity here.
+
+The future likely belongs to systems that can:
+
+-   Compress causal reasoning into usable interfaces.
+-   Translate uncertainty into decision language and recommendations.
+-   Embed guardrails invisibly.
+-   Combine statistical depth with product design.
+
+Structured, decision-aware statistical systems.
+
+If businesses want "yes" or "no", then we must build the systems that can say it — without abandoning everything that makes statistics valuable.
+
+Because if we don’t, something else will answer the questions.
+
+And it will sound just as confident.
+
+## Use of Generative-AI Tools Declaration
+
+This post was developed through iterative discussion with ChatGPT, which was used to help explore ideas, structure arguments, and draft and organize content.
+Any flaws are the human's responsibility.
+
+
+---
+
+
 # Maxims of Data Science{#maxims}
 2022-12-01
 
@@ -60,6 +214,7 @@ Your future self will thank you when you need to redo the analysis in a few mont
 
 Data science, done well, can be a force for good. Done poorly it just makes the world more confused. Keeping these few simple guidelines in mind can help you do the former.
 
+---
 
 # A really fun project{#fun_project}
 2022-11-20
@@ -82,7 +237,7 @@ The business conclusion was then to only look for resources that were involved i
 
 To me, this project was a blast. It had non-trivial statistics, modelling, real-world impact, and ultimately a simple explanation. Of course, it would have been even more fun if the scheme had worked better!
 
-
+---
 
 # Introducing...the full-stat data scientist{#fullstat}
 2022-11-13

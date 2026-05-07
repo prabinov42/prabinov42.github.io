@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 
-I have applied data science to telecom while at Alcatel/[Nokia](https://www.nokia.com/), [BlackBerry](https://www.blackberry.com), [Akamai](https://www.akamai.com/); fintech while at  [Ario/Thinking Capital](https://www.thinkingcapital.ca/); and eCommerce while at [Shopify](https://www.shopify.ca/). Most recently, I worked at [Meta](www.meta.com), on improving video recommendations.
+I have applied data science to telecom while at Alcatel/[Nokia](https://www.nokia.com/), [BlackBerry](https://www.blackberry.com), [Akamai](https://www.akamai.com/); fintech while at  [Ario/Thinking Capital](https://www.thinkingcapital.ca/); eCommerce while at [Shopify](https://www.shopify.ca/), and at [Meta](www.meta.com) on improving video recommendations. I now work at [Viamo](https://viamo.io/), "improving lives via mobile" ... ok, ok ... "Improving 'improving lives via mobile' via data!"
 
 I also teach an intro to data science course to MBA students at [University of Ottawa](https://telfer.uottawa.ca).  
 

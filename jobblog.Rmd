@@ -45,7 +45,9 @@ Your resume is the first thing, and perhaps the last thing, we see about you so 
 - Make it easy to see what you’ve done and what you specialize in. Make it accurate and easy to understand. Skip the grades and references (you can offer these after you get an interview)
 - What will really make you stand out is interesting projects…especially ones you have done outside of school/work because most of your work projects are likely covered by an NDA and so you can’t talk about them in any depth.
     - But, if your project is on the mnist data set, unless your algorithm can beat the best in the world I’m not interested, I want to see something that you were interested in and dove deep into.
-- If it is on your resume, you should know it. Please don’t say on your resume the you are intermediate in C and then when we ask you a C related question reply that it is the third letter in the alphabet. If it is on your resume it is fair game, and if we ask you about something that is there and you don’t know about it, we question the accuracy of the rest of your resume.
+- If it is on your resume, you should know it. Please don’t say on your resume the you are intermediate in C and then when we ask you a C related question reply that it is the third letter in the alphabet. If it is on your resume it is fair game, and if we ask you about something that is there and you don’t know about it, we question the accuracy of the rest of your resume.  
+- I can't believe I have to say this: do not share confidential information on your resume. If you do not respect your current or previous employer's confidentiality, we suspect you will not respect ours either.  
+
 
 # Conclusion
 

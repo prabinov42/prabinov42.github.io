@@ -21,7 +21,7 @@
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -32,7 +32,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -457,8 +458,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
 
   <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
   <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
   <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
@@ -787,6 +788,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -827,9 +829,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     display: none !important;
   }
 
+  hr.section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0px;
+  }
+
+
+  d-byline {
+    border-top: none;
+  }
+
   d-article {
     padding-top: 2.5rem;
     padding-bottom: 30px;
+    border-top: none;
   }
 
   d-appendix {
@@ -924,6 +938,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article div.sourceCode pre {
     padding-left: 18px;
     font-size: 14px;
+  }
+
+  /* tweak for Pandoc numbered line within distill */
+  d-article pre.numberSource code > span {
+      left: -2em;
   }
 
   d-article pre {
@@ -1028,10 +1047,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     position: relative;
     margin-bottom: 2.5em;
     margin-top: 1.5em;
-  }
-
-  .figure img {
-    width: 100%;
   }
 
   .figure .caption {
@@ -1689,6 +1704,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // create d-title
     $('.d-title').changeElementType('d-title');
 
+    // separator
+    var separator = '<hr class="section-separator" style="clear: both"/>';
+    // prepend separator above appendix
+    $('.d-byline').before(separator);
+    $('.d-article').before(separator);
+
     // create d-byline
     var byline = $('<d-byline></d-byline>');
     $('.d-byline').replaceWith(byline);
@@ -1766,8 +1787,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     $('.distill-force-highlighting-css').parent().remove();
 
     // remove empty line numbers inserted by pandoc when using a
-    // custom syntax highlighting theme
-    $('code.sourceCode a:empty').remove();
+    // custom syntax highlighting theme, except when numbering line
+    // in code chunk
+    $('pre:not(.numberLines) code.sourceCode a:empty').remove();
 
     // load distill framework
     load_distill_framework();
@@ -1793,12 +1815,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       // add orcid ids
       $('.authors-affiliations').find('.author').each(function(i, el) {
         var orcid_id = front_matter.authors[i].orcidID;
+        var author_name = front_matter.authors[i].author
         if (orcid_id) {
           var a = $('<a></a>');
           a.attr('href', 'https://orcid.org/' + orcid_id);
           var img = $('<img></img>');
           img.addClass('orcid-id');
-          img.attr('alt', 'ORCID ID');
+          img.attr('alt', author_name ? 'ORCID ID for ' + author_name : 'ORCID ID');
           img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
           a.append(img);
           $(this).append(a);
@@ -1863,9 +1886,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -1877,6 +1912,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1976,6 +2036,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1998,7 +2060,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2037,7 +2099,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14.1/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2084,6 +2146,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-title">
 <h1>Blog</h1>
+
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 <p><p>Various non-project thoughts.</p></p>
@@ -2091,11 +2154,124 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <div class="d-article">
+<h1 id="selfdeception">Automated Self-Deception: Business statistics in the age of GenAI</h1>
+<p>2026-05-07</p>
+<h2 id="tldr">tl;dr</h2>
+<p>Businesses need simple “Yes” or “No” answers.
+Business data scientists must build the systems that answer — properly.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Over the past few decades, statistics has converged on a set of hard-won principles:</p>
+<ul>
+<li>Define the estimand. (See “<a href="https://bstewart.scholar.princeton.edu/publications/setting-target-precise-estimands-and-gap-between-theory-and-empirics">What is your Estimand</a>”)</li>
+<li>Specify the causal structure (See “<a href="https://psycnet.apa.org/record/2018-67155-004">Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data</a>”).</li>
+<li>Separate design from analysis.</li>
+<li>Account for multiple testing.</li>
+<li>Distinguish prediction from causal inference.</li>
+<li>How to derive meaning from statistical models and coefficients (See “<a href="https://marginaleffects.com/">Model to Meaning: How to interpret statistical models in R and Python</a>”)</li>
+</ul>
+<p>Within the discipline, these are table stakes.</p>
+<p>But in most businesses, the questions sound like this:</p>
+<ul>
+<li>Is the new version better?</li>
+<li>Did the campaign work?</li>
+<li>Should we ship it?</li>
+</ul>
+<p>These are not requests for an estimand, they are requests for a decision.
+And increasingly, organizations do not have the time, expertise, or appetite to translate them into formal decision-theoretic problems.</p>
+<p>If statisticians insist on full procedural rigor before giving an answer, they will be bypassed.</p>
+<p>And this is already happening.</p>
+<h2 id="the-rise-of-the-instant-answer">The Rise of the Instant Answer</h2>
+<p>A manager can now:</p>
+<ol type="1">
+<li>Upload two datasets.</li>
+<li>Ask an LLM: “Is the new version better? Yes or no answers only please.”</li>
+<li>Receive a confident answer in 30 seconds.</li>
+</ol>
+<p>No caveats.
+No discussion of assumptions or their validity.
+No discussion of multiplicity.
+No estimand clarification.
+No causal diagram.
+No subtlety.</p>
+<p>Just clarity.</p>
+<p>This is profoundly attractive.
+It reduces cognitive load.
+It accelerates meetings.
+It creates decisiveness.</p>
+<p>The danger is not that these systems are foolish. The danger is that they compress ambiguity into certainty without enforcing design discipline.
+They give single-number answers to multi-dimensional problems.</p>
+<p>And if statisticians do not provide an alternative that is equally frictionless, the market will select for speed over correctness.</p>
+<h2 id="the-hard-truth-business-data-scientists-must-adapt">The Hard Truth: Business Data Scientists Must Adapt</h2>
+<p>It is not realistic to expect most businesses to:</p>
+<ul>
+<li>Articulate formal utility functions.</li>
+<li>Run full decision-theoretic frameworks.</li>
+<li>Engage in explicit multi-objective optimization.</li>
+</ul>
+<p>The adaptation burden lies with us, the business data science community.</p>
+<p>If we are to remain relevant, we must build systems that:</p>
+<ul>
+<li>Answer the oversimplified business question.</li>
+<li>Preserve statistical rigour internally.</li>
+<li>Enforce guardrails automatically.</li>
+<li>Guide decision-makers forward.</li>
+</ul>
+<p>In other words, we need LLM-like systems that actually do statistics properly.</p>
+<h2 id="what-that-system-must-do">What That System Must Do</h2>
+<p>Such a system would not just respond to:</p>
+<p>“Is version B better?”</p>
+<p>It would internally:</p>
+<ul>
+<li>Require declaration of a primary metric.</li>
+<li>Identify guardrail metrics.</li>
+<li>Check sample size and power.</li>
+<li>Adjust for multiplicity if multiple outcomes are examined.</li>
+<li>Estimate effect sizes with uncertainty.</li>
+<li>Detect obvious design flaws.</li>
+</ul>
+<p>And then output something like: “Based on the pre-specified primary metric, there is a 78% probability that Version B outperforms Version A by at least the minimum meaningful threshold. No guardrails were breached. Recommendation: ship, with continued monitoring of churn over the next 30 days.”</p>
+<p>The complexity remains—but it is embedded in the system, not exposed as friction.</p>
+<h2 id="beyond-reactive-answers">Beyond Reactive Answers</h2>
+<p>More importantly, the system cannot be purely reactive.
+It must also guide.</p>
+<p>After analyzing an experiment, it should say:</p>
+<ul>
+<li>“Your power was low, so no results can be presented; consider increasing sample size.”</li>
+<li>“You examined 12 metrics; based on previous knowledge, we have decided that metric X is the primary outcome of interest.”</li>
+<li>“The effect is heterogeneous across user segments; here are the results by segment.”</li>
+<li>“You are optimizing a short-term metric that negatively predicts long-term retention. Would you like to analyze the NPV??</li>
+</ul>
+<p>It should not merely answer the question asked, it should improve the questions being asked and then answer those.</p>
+<h2 id="the-real-risk-automated-self-deception">The Real Risk: Automated Self-Deception</h2>
+<p>If we fail to build these systems, organizations will still automate decision-making—but without statistical discipline.</p>
+<p>We will drift toward automated self-deception:</p>
+<ul>
+<li>Confident but fragile conclusions.</li>
+<li>Metric gaming at scale.</li>
+<li>Increasing acceptable error rates.</li>
+<li>Narrative clarity replacing rigour.</li>
+</ul>
+<p>And once that norm sets in, it will be difficult to reverse.</p>
+<h2 id="the-opportunity">The Opportunity</h2>
+<p>This is not purely defensive, there is enormous opportunity here.</p>
+<p>The future likely belongs to systems that can:</p>
+<ul>
+<li>Compress causal reasoning into usable interfaces.</li>
+<li>Translate uncertainty into decision language and recommendations.</li>
+<li>Embed guardrails invisibly.</li>
+<li>Combine statistical depth with product design.</li>
+</ul>
+<p>Structured, decision-aware statistical systems.</p>
+<p>If businesses want “yes” or “no”, then we must build the systems that can say it — without abandoning everything that makes statistics valuable.</p>
+<p>Because if we don’t, something else will answer the questions.</p>
+<p>And it will sound just as confident.</p>
+<h2 id="use-of-generative-ai-tools-declaration">Use of Generative-AI Tools Declaration</h2>
+<p>This post was developed through iterative discussion with ChatGPT, which was used to help explore ideas, structure arguments, and draft and organize content.
+Any flaws are the human’s responsibility.</p>
+<hr />
 <h1 id="maxims">Maxims of Data Science</h1>
 <p>2022-12-01</p>
-<p>One of the great things about teaching data science (or any subject)
-is that it forces you to distill everything down to just the essentials.
-So here are my maxims of data science.</p>
+<p>One of the great things about teaching data science (or any subject) is that it forces you to distill everything down to just the essentials. So here are my maxims of data science.</p>
 <ul>
 <li>All your data is crap</li>
 <li>Using just one number is lying</li>
@@ -2104,195 +2280,60 @@ So here are my maxims of data science.</p>
 <li>It must be reproducible</li>
 </ul>
 <h2 id="all-your-data-is-crap">All your data is crap</h2>
-<p>I am not saying that your data is worthless. I am saying that any
-reasonable data set that is not from a text book, or pre-cleansed, has
-glitches in it….and if you haven’t found them you haven’t looked hard
-enough. Plot, compute summary statistics, look at the data, swim in it.
-Let it seep into every pore.</p>
-<p>One of the first things you do as a data scientist with a new data
-set is find these glitches, for they can ruin your analysis. Some of
-them may be easy to explain and remedy (eg, using -99 as a code to
-indicate a missing value), while others may only reveal themselves after
-a long game of hide an seek. One example of the latter was a dataset
-where packet sizes looked to be periodic…eventually it was discovered
-that a part of the time stamp field was being written to the packet size
-field.</p>
-<p>Which leads to the next point - when you finally figure out what
-caused the glitch, it is your responsibility to communicate it
-appropriately and make sure the same error can’t happen again.</p>
-<p>There are, of course, times where you can not discover the cause of a
-glitch. You may not even be certain that there is in fact a glitch, but
-some element in the data sure looks weird. What do you do? You assess
-the impact of the glitch on any conclusions you reach from the data set.
-If the glitch does not impact the decision, or the cost of a wrong
-decision is low, then you can simply document it. On the other hand if
-it does impact what decision you’d make, then it needs further
-exploration.</p>
-<h2 id="using-just-one-number-is-lying">Using just one number is
-lying</h2>
-<p>Anything other than the most trivial of problems can not be described
-by just one number. Don’t be afraid to poke the tails of the
-distribution of your data to see what your best and worst customers are
-experiencing. Quantify the variability of your results. A new version of
-a system that is 5% faster on average may be a terrible thing to deploy
-if half the customers get worse performance, or if the 5% is really 5%
-+/- 30%.</p>
-<p>Of course you have to figure out the best way to explain that to your
-stakeholders….</p>
-<h2 id="speak-so-the-other-person-understands">Speak so the other person
-understands</h2>
-<p>All your work is for nothing of the recipient (stakeholder) does not
-understand the impact of what your saying. It is the data scientists
-responsibility to learn the business language and discuss the results in
-a way the stakeholder understands their importance - otherwise all your
-work, even the most earth-shattering results, has all been for
-nothing.</p>
+<p>I am not saying that your data is worthless. I am saying that any reasonable data set that is not from a text book, or pre-cleansed, has glitches in it….and if you haven’t found them you haven’t looked hard enough. Plot, compute summary statistics, look at the data, swim in it. Let it seep into every pore.</p>
+<p>One of the first things you do as a data scientist with a new data set is find these glitches, for they can ruin your analysis. Some of them may be easy to explain and remedy (eg, using -99 as a code to indicate a missing value), while others may only reveal themselves after a long game of hide an seek. One example of the latter was a dataset where packet sizes looked to be periodic…eventually it was discovered that a part of the time stamp field was being written to the packet size field.</p>
+<p>Which leads to the next point - when you finally figure out what caused the glitch, it is your responsibility to communicate it appropriately and make sure the same error can’t happen again.</p>
+<p>There are, of course, times where you can not discover the cause of a glitch. You may not even be certain that there is in fact a glitch, but some element in the data sure looks weird. What do you do? You assess the impact of the glitch on any conclusions you reach from the data set. If the glitch does not impact the decision, or the cost of a wrong decision is low, then you can simply document it. On the other hand if it does impact what decision you’d make, then it needs further exploration.</p>
+<h2 id="using-just-one-number-is-lying">Using just one number is lying</h2>
+<p>Anything other than the most trivial of problems can not be described by just one number. Don’t be afraid to poke the tails of the distribution of your data to see what your best and worst customers are experiencing. Quantify the variability of your results. A new version of a system that is 5% faster on average may be a terrible thing to deploy if half the customers get worse performance, or if the 5% is really 5% +/- 30%.</p>
+<p>Of course you have to figure out the best way to explain that to your stakeholders….</p>
+<h2 id="speak-so-the-other-person-understands">Speak so the other person understands</h2>
+<p>All your work is for nothing of the recipient (stakeholder) does not understand the impact of what your saying. It is the data scientists responsibility to learn the business language and discuss the results in a way the stakeholder understands their importance - otherwise all your work, even the most earth-shattering results, has all been for nothing.</p>
 <h2 id="live-by-the-8020-rule">Live by the 80/20 rule</h2>
-<p>The 80/20 rule is the idea that for many things in life, 20% of the
-effort gets you 80% of the value. And when doing data science that is
-how you should be thinking - how good does the answer need to be?</p>
-<p>Of course it is not necessarily 80/20. There are many examples where
-80% accuracy is not enough (think medical tests, maybe personal
-finances, planes flying, etc) and for those you will of course do more
-work to get a better answer.</p>
-<p>But the point is do not spend $100 of effort for something that is
-only worth $1 (unless you are doing it for fun, to learn something new,
-or a variety of other reasons that, in fact, increase the value to you
-from $1)</p>
+<p>The 80/20 rule is the idea that for many things in life, 20% of the effort gets you 80% of the value. And when doing data science that is how you should be thinking - how good does the answer need to be?</p>
+<p>Of course it is not necessarily 80/20. There are many examples where 80% accuracy is not enough (think medical tests, maybe personal finances, planes flying, etc) and for those you will of course do more work to get a better answer.</p>
+<p>But the point is do not spend $100 of effort for something that is only worth $1 (unless you are doing it for fun, to learn something new, or a variety of other reasons that, in fact, increase the value to you from $1)</p>
 <h2 id="it-must-be-reproducible">It must be reproducible</h2>
-<p>Nothing loses hard-won credibility for a data scientist faster than
-to re-doing an analysis with very similar numbers and get wildly
-different answers - so you then rerun with the original numbers and get
-answers different from your original analysis. How did that happen? If
-all you can reply with is a shrug, you have lost your audience.</p>
-<p>Reproducibility prevents that. Most modern data science environments
-(think R/RStudio/Knitr) allow you to create a document that can rerun
-the analysis form beginning to end with the click of a button, and the
-files that are used can be easily version controlled (think git).</p>
-<p>Your future self will thank you when you need to redo the analysis in
-a few months with slightly different data and you don’t have to remember
-every fiddly step because it is all in your code/document.</p>
+<p>Nothing loses hard-won credibility for a data scientist faster than to re-doing an analysis with very similar numbers and get wildly different answers - so you then rerun with the original numbers and get answers different from your original analysis. How did that happen? If all you can reply with is a shrug, you have lost your audience.</p>
+<p>Reproducibility prevents that. Most modern data science environments (think R/RStudio/Knitr) allow you to create a document that can rerun the analysis form beginning to end with the click of a button, and the files that are used can be easily version controlled (think git).</p>
+<p>Your future self will thank you when you need to redo the analysis in a few months with slightly different data and you don’t have to remember every fiddly step because it is all in your code/document.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Data science, done well, can be a force for good. Done poorly it just
-makes the world more confused. Keeping these few simple guidelines in
-mind can help you do the former.</p>
+<p>Data science, done well, can be a force for good. Done poorly it just makes the world more confused. Keeping these few simple guidelines in mind can help you do the former.</p>
+<hr />
 <h1 id="fun_project">A really fun project</h1>
 <p>2022-11-20</p>
-<p>I have recently been asked what kind of projects I like to work on.
-You can see some under the ‘Projects’ menu. Here I describe one from
-work, but all the names have been changed to protect the innocent.</p>
-<p>The project was about resource allocation. It us a very general
-problem, but as an example consider users who can take many paths
-through a system, and depending on what they do may need many different
-resources, like images, files, computations performed, or queries run.
-Each of these resources may take a while to prepare and if we knew what
-the user was going to do next, we could get a head start on preparing
-whatever the user was going to need next - but of course we don’t want
-to do work for nothing and prepare resources they do not want or
-need.</p>
-<p>The first task was to try to figure out some basic algorithms for
-predicting what actions the user would take next, so that we could see
-how the scheme could work in simple cases, and then enhance later where
-needed.</p>
-<p>I used a Markov chain model to predict the users next actions, which
-means that we model the user’s next step only as a function of where
-they currently are in the user journey. Note that this can be extended,
-and was in several experiments. Then I tested it against some real user
-data we had. In some cases the predictions were pretty good, and for
-others, terrible. I tried to relate the difference in performance of the
-predictions to characteristics of the users and their current state (ie.
-what actions they had already taken) , with only a little success. I was
-hoping that there would be some easily identifiable subset that had good
-predictions, and then we could prepare the resources for just those
-users and/or actions and not the others.</p>
-<p>To try to figure out why some of the predictions were good and other
-bad, I developed a model that basically looked like being at a casino.
-Each step in the user journey consisted of a bag of resources and each
-of these items had a ‘cost’ : the amount of computation it would take to
-prepare them. So, we could think of the problem as betting on specific
-items, and then if they are actually used in the users next step then we
-‘win’ the savings in computation, because then the user does not have to
-wait for them to complete. But if the user does not follow our
-prediction, then that computation is wasted, and we lose.</p>
-<p>Around the same time, the team implemented a preliminary version, and
-we could evaluate its performance. It agreed with the analysis work I
-had already done. Again, I tried to zero in some scenarios where the
-performance was good, but again, that proved difficult.</p>
-<p>So I went back to modelling. Some further analysis, followed by some
-hand-waving scaling limits (it wasn’t completely rigorous), yielded an
-interesting and very simple equation that described the relationship
-between the cost and the profit for various scenarios. In retrospect the
-conclusion was obvious: the concept could only work well in situations
-where the flow through the system was highly linear, with few choices at
-each stage.</p>
-<p>The business conclusion was then to only look for resources that were
-involved in a large subset of the likely next steps, and to ready only
-those that had a high probability of being used at a small cost - which
-unfortunately also limited the profit.</p>
-<p>To me, this project was a blast. It had non-trivial statistics,
-modelling, real-world impact, and ultimately a simple explanation. Of
-course, it would have been even more fun if the scheme had worked
-better!</p>
+<p>I have recently been asked what kind of projects I like to work on. You can see some under the ‘Projects’ menu. Here I describe one from work, but all the names have been changed to protect the innocent.</p>
+<p>The project was about resource allocation. It us a very general problem, but as an example consider users who can take many paths through a system, and depending on what they do may need many different resources, like images, files, computations performed, or queries run. Each of these resources may take a while to prepare and if we knew what the user was going to do next, we could get a head start on preparing whatever the user was going to need next - but of course we don’t want to do work for nothing and prepare resources they do not want or need.</p>
+<p>The first task was to try to figure out some basic algorithms for predicting what actions the user would take next, so that we could see how the scheme could work in simple cases, and then enhance later where needed.</p>
+<p>I used a Markov chain model to predict the users next actions, which means that we model the user’s next step only as a function of where they currently are in the user journey. Note that this can be extended, and was in several experiments. Then I tested it against some real user data we had. In some cases the predictions were pretty good, and for others, terrible. I tried to relate the difference in performance of the predictions to characteristics of the users and their current state (ie. what actions they had already taken) , with only a little success. I was hoping that there would be some easily identifiable subset that had good predictions, and then we could prepare the resources for just those users and/or actions and not the others.</p>
+<p>To try to figure out why some of the predictions were good and other bad, I developed a model that basically looked like being at a casino. Each step in the user journey consisted of a bag of resources and each of these items had a ‘cost’ : the amount of computation it would take to prepare them. So, we could think of the problem as betting on specific items, and then if they are actually used in the users next step then we ‘win’ the savings in computation, because then the user does not have to wait for them to complete. But if the user does not follow our prediction, then that computation is wasted, and we lose.</p>
+<p>Around the same time, the team implemented a preliminary version, and we could evaluate its performance. It agreed with the analysis work I had already done. Again, I tried to zero in some scenarios where the performance was good, but again, that proved difficult.</p>
+<p>So I went back to modelling. Some further analysis, followed by some hand-waving scaling limits (it wasn’t completely rigorous), yielded an interesting and very simple equation that described the relationship between the cost and the profit for various scenarios. In retrospect the conclusion was obvious: the concept could only work well in situations where the flow through the system was highly linear, with few choices at each stage.</p>
+<p>The business conclusion was then to only look for resources that were involved in a large subset of the likely next steps, and to ready only those that had a high probability of being used at a small cost - which unfortunately also limited the profit.</p>
+<p>To me, this project was a blast. It had non-trivial statistics, modelling, real-world impact, and ultimately a simple explanation. Of course, it would have been even more fun if the scheme had worked better!</p>
+<hr />
 <h1 id="fullstat">Introducing…the full-stat data scientist</h1>
 <p>2022-11-13</p>
-<p>I have been thinking about different kinds of data scientists, and I
-think we need a new term for some: the <strong>full-stat</strong> data
-scientist.</p>
-<p>No, that is not a typo. Doubtless you have seen much about
-<em>full-stack</em> data scientists - here we compare and contrast.</p>
-<h2 id="what-is-a-full-stack-data-scientist">What is a
-<em>full-stack</em> data scientist?</h2>
-<p>A full-stack data scientist is one who can code, do stats, define
-metrics, etc. and take an idea from concept through pipeline to database
-design to building a dashboard.</p>
-<p>They have all of the basic skills of a regular data scientist with
-the added features of strong data engineering and software engineering
-skills.</p>
-<p>They are called <em>full-stack</em> because they work with the full
-stack of data science tools.</p>
-<p>Full-stack data scientists own the data science product, from
-beginning to end.</p>
-<p>They frequently come with computer science degrees, and have taken a
-few stats courses,</p>
-<p>They will use words like <em>kubernetes</em>, <em>presto</em>,
-<em>spark</em>, <em>python</em>, <em>sql</em>, <em>pandas</em>,
-<em>pymc</em>, <em>scikit-learn</em>, and <em>kafka</em>.</p>
-<h2 id="what-is-a-full-stat-data-scientist">What is a <em>full-stat</em>
-data scientist?</h2>
-<p>A <em>full-stat</em> data scientist is a data scientist who can do
-much of what a full-stack data scientist can, and may be less skilled in
-the data engineering realm, but more skilled in statistics and
-quantitative modeling.</p>
-<p>Many come with advanced degrees in statistics, probability, and
-econometrics.</p>
-<p>They model the business situation using whatever techniques are
-required: analysis, stochastic modeling, simulation, optimization, game
-theory, etc. and determine which statistical techniques are required in
-order to analyze the data based on the model.</p>
-<p>They can adapt the techniques to the problem when needed or develop
-completely novel approaches when needed. They can evaluate trade-offs
-between inferential accuracy and run-time requirements of estimation
-algorithms.</p>
-<p>They are deeply skeptical about data and find anomalies that no one
-else does and figure out what to do about them. They care deeply about
-quantifying uncertainty and the impact of this uncertainty on business
-decisions.</p>
-<p>They will use words like <em>R</em>, <em>Markov chain</em>,
-<em>glm</em>, <em>utility function</em>, <em>DAG</em>, and
-<em>Stan</em>.</p>
+<p>I have been thinking about different kinds of data scientists, and I think we need a new term for some: the <strong>full-stat</strong> data scientist.</p>
+<p>No, that is not a typo. Doubtless you have seen much about <em>full-stack</em> data scientists - here we compare and contrast.</p>
+<h2 id="what-is-a-full-stack-data-scientist">What is a <em>full-stack</em> data scientist?</h2>
+<p>A full-stack data scientist is one who can code, do stats, define metrics, etc. and take an idea from concept through pipeline to database design to building a dashboard.</p>
+<p>They have all of the basic skills of a regular data scientist with the added features of strong data engineering and software engineering skills.</p>
+<p>They are called <em>full-stack</em> because they work with the full stack of data science tools.</p>
+<p>Full-stack data scientists own the data science product, from beginning to end.</p>
+<p>They frequently come with computer science degrees, and have taken a few stats courses,</p>
+<p>They will use words like <em>kubernetes</em>, <em>presto</em>, <em>spark</em>, <em>python</em>, <em>sql</em>, <em>pandas</em>, <em>pymc</em>, <em>scikit-learn</em>, and <em>kafka</em>.</p>
+<h2 id="what-is-a-full-stat-data-scientist">What is a <em>full-stat</em> data scientist?</h2>
+<p>A <em>full-stat</em> data scientist is a data scientist who can do much of what a full-stack data scientist can, and may be less skilled in the data engineering realm, but more skilled in statistics and quantitative modeling.</p>
+<p>Many come with advanced degrees in statistics, probability, and econometrics.</p>
+<p>They model the business situation using whatever techniques are required: analysis, stochastic modeling, simulation, optimization, game theory, etc. and determine which statistical techniques are required in order to analyze the data based on the model.</p>
+<p>They can adapt the techniques to the problem when needed or develop completely novel approaches when needed. They can evaluate trade-offs between inferential accuracy and run-time requirements of estimation algorithms.</p>
+<p>They are deeply skeptical about data and find anomalies that no one else does and figure out what to do about them. They care deeply about quantifying uncertainty and the impact of this uncertainty on business decisions.</p>
+<p>They will use words like <em>R</em>, <em>Markov chain</em>, <em>glm</em>, <em>utility function</em>, <em>DAG</em>, and <em>Stan</em>.</p>
 <h2 id="discussion">Discussion</h2>
-<p>Both can be incredibly valuable to your organization. Full-stack data
-scientists are able to get the data from your customer facing systems
-into data sets suitable for analysis, create dash boards showing changes
-in metrics, and run A/B experiments. Full-stat data scientists can probe
-the deepest recesses of these data sets, and rigorously analyze them in
-ways that yield new insights.</p>
-<p>Note that this does not mean a full-stat data scientist will not know
-sql, nor that a full-stack can’t do a Bayesian analysis - just that
-their expertise, experience and mindset is generally in their own
-camp.</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>Both can be incredibly valuable to your organization. Full-stack data scientists are able to get the data from your customer facing systems into data sets suitable for analysis, create dash boards showing changes in metrics, and run A/B experiments. Full-stat data scientists can probe the deepest recesses of these data sets, and rigorously analyze them in ways that yield new insights.</p>
+<p>Note that this does not mean a full-stat data scientist will not know sql, nor that a full-stack can’t do a Bayesian analysis - just that their expertise, experience and mindset is generally in their own camp.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
