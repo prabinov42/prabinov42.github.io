@@ -8,7 +8,7 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Automated Self-Deception: Business statistics in the age of GenAI {#selfdeception}
+# Automated Self-Deception: Business statistics in the age of GenAI{#selfdeception}
 2026-05-07
 
 ## tl;dr
@@ -155,8 +155,31 @@ And it will sound just as confident.
 
 ## Use of Generative-AI Tools Declaration
 
-This post was developed through iterative discussion with ChatGPT, which was used to help explore ideas, structure arguments, and draft and organize content.
-Any flaws are the human's responsibility.
+This post was developed through iterative discussion with ChatGPT, which was used to help explore ideas, structure arguments, and draft and organize content. To paraphrase Borges: "I do not know which one of us has written this post". But any flaws are the human's responsibility.
+
+
+## Follow up questions
+
+### Why 'business' data science?
+
+I am thinking here of typical businesses who do not have a gazillion data scientists, but do have a few, who are charged with help making business decisions. You know, statsy people. I am not thinking of 'full stack' data scientists, or writing pipelines or data stores, or frameworks. Just using data to make business decisions. 
+
+### All businesses?
+
+And I'm excluding businesses where there are very precisely defined metrics that are (more less) legally required: finance, health, insurance, etc.
+
+### Just data science?
+
+Maybe. Maybe not. I am focusing on ds because that is what I know and have seen - but it wouldn't surprise me in the least if many other areas will face similar reckonings.
+
+### How would you go about building this?
+
+Obviously, I'd ask ChatGPT how to do so. It's reply was interesting - among other (somewhat obvious and useful) suggestions, it said "Critical Design Principle: Never let the LLM directly interpret raw data or perform inference internally. Always: LLM proposes → R computes → LLM explains"
+
+ChatGPT is demonstrating more self-awareness than some people I know!
+
+
+
 
 
 ---
