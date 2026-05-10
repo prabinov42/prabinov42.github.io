@@ -88,635 +88,38 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Peter's Stuff: Projects</title>
+  <title>Auto-Business DS</title>
+
+  <meta property="description" itemprop="description" content="From messy questions to what is knowable, identifiable, and actionable"/>
 
 
-
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2026-05-10"/>
+  <meta property="article:created" itemprop="dateCreated" content="2026-05-10"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Peter&#39;s Stuff: Projects"/>
+  <meta property="og:title" content="Auto-Business DS"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="From messy questions to what is knowable, identifiable, and actionable"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="Peter&#39;s Stuff"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Peter&#39;s Stuff: Projects"/>
+  <meta property="twitter:title" content="Auto-Business DS"/>
+  <meta property="twitter:description" content="From messy questions to what is knowable, identifiable, and actionable"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":["Projects"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Auto-Business DS"]},{"type":"character","attributes":{},"value":["From messy questions to what is knowable, identifiable, and actionable\n"]},{"type":"character","attributes":{},"value":["2026-05-10"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"NULL"}
+  </script>
   <!--radix_placeholder_navigation_in_header-->
-  <meta name="distill:offset" content=""/>
-
-  <script type="application/javascript">
-
-    window.headroom_prevent_pin = false;
-
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        tolerance: 5,
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
-  </script>
-
-  <style type="text/css">
-
-  /* Theme (user-documented overrideables for nav appearance) */
-
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #0F2E3D;
-    font-size: 15px;
-    font-weight: 300;
-  }
-
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .distill-site-nav a:hover {
-    color: white;
-  }
-
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-
-  .distill-site-header {
-
-  }
-
-  .distill-site-footer {
-
-  }
-
-
-  /* Site Header */
-
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-
-
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-
-  .distill-site-header .title {
-    font-size: 18px;
-    min-width: 150px;
-  }
-
-  .distill-site-header .logo {
-    padding: 0;
-  }
-
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-
-
-
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-
-
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-dropdown-active {
-    display: block;
-  }
-
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative; min-height: 500px; }
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-
-  /* Site Footer */
-
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-
-  /* Headroom */
-
-  d-title {
-    padding-top: 6rem;
-  }
-
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-
-  .headroom--unpinned {
-    top: -100px;
-  }
-
-  .headroom--pinned {
-    top: 0;
-  }
-
-  /* adjust viewport for navbar height */
-  /* helps vertically center bootstrap (non-distill) content */
-  .min-vh-100 {
-    min-height: calc(100vh - 100px) !important;
-  }
-
-  </style>
-
-  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-  <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
-  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
-  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
-
-  <script type="application/javascript">
-
-  function getMeta(metaName) {
-    var metas = document.getElementsByTagName('meta');
-    for (let i = 0; i < metas.length; i++) {
-      if (metas[i].getAttribute('name') === metaName) {
-        return metas[i].getAttribute('content');
-      }
-    }
-    return '';
-  }
-
-  function offsetURL(url) {
-    var offset = getMeta('distill:offset');
-    return offset ? offset + '/' + url : url;
-  }
-
-  function createFuseIndex() {
-
-    // create fuse index
-    var options = {
-      keys: [
-        { name: 'title', weight: 20 },
-        { name: 'categories', weight: 15 },
-        { name: 'description', weight: 10 },
-        { name: 'contents', weight: 5 },
-      ],
-      ignoreLocation: true,
-      threshold: 0
-    };
-    var fuse = new window.Fuse([], options);
-
-    // fetch the main search.json
-    return fetch(offsetURL('search.json'))
-      .then(function(response) {
-        if (response.status == 200) {
-          return response.json().then(function(json) {
-            // index main articles
-            json.articles.forEach(function(article) {
-              fuse.add(article);
-            });
-            // download collections and index their articles
-            return Promise.all(json.collections.map(function(collection) {
-              return fetch(offsetURL(collection)).then(function(response) {
-                if (response.status === 200) {
-                  return response.json().then(function(articles) {
-                    articles.forEach(function(article) {
-                      fuse.add(article);
-                    });
-                  })
-                } else {
-                  return Promise.reject(
-                    new Error('Unexpected status from search index request: ' +
-                              response.status)
-                  );
-                }
-              });
-            })).then(function() {
-              return fuse;
-            });
-          });
-
-        } else {
-          return Promise.reject(
-            new Error('Unexpected status from search index request: ' +
-                        response.status)
-          );
-        }
-      });
-  }
-
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-
-    // get search element (bail if we don't have one)
-    var searchEl = window.document.getElementById('distill-search');
-    if (!searchEl)
-      return;
-
-    createFuseIndex()
-      .then(function(fuse) {
-
-        // make search box visible
-        searchEl.classList.remove('hidden');
-
-        // initialize autocomplete
-        var options = {
-          autoselect: true,
-          hint: false,
-          minLength: 2,
-        };
-        window.autocomplete(searchEl, options, [{
-          source: function(query, callback) {
-            const searchOptions = {
-              isCaseSensitive: false,
-              shouldSort: true,
-              minMatchCharLength: 2,
-              limit: 10,
-            };
-            var results = fuse.search(query, searchOptions);
-            callback(results
-              .map(function(result) { return result.item; })
-            );
-          },
-          templates: {
-            suggestion: function(suggestion) {
-              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
-                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
-                : '';
-              var html = `
-                <div class="search-item">
-                  <h3>${suggestion.title}</h3>
-                  <div class="search-item-description">
-                    ${suggestion.description || ''}
-                  </div>
-                  <div class="search-item-preview">
-                    ${img}
-                  </div>
-                </div>
-              `;
-              return html;
-            }
-          }
-        }]).on('autocomplete:selected', function(event, suggestion) {
-          window.location.href = offsetURL(suggestion.path);
-        });
-        // remove inline display style on autocompleter (we want to
-        // manage responsive display via css)
-        $('.algolia-autocomplete').css("display", "");
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-
-  });
-
-  </script>
-
-  <style type="text/css">
-
-  .nav-search {
-    font-size: x-small;
-  }
-
-  /* Algolioa Autocomplete */
-
-  .algolia-autocomplete {
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: sub;
-    background-color: white;
-    color: black;
-    padding: 6px;
-    padding-top: 8px;
-    padding-bottom: 0;
-    border-radius: 6px;
-    border: 1px #0F2E3D solid;
-    width: 180px;
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-nav .algolia-autocomplete {
-      display: none;
-      visibility: hidden;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete {
-      display: inline-block;
-      visibility: visible;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
-      margin-left: 0;
-      width: 400px;
-      max-height: 400px;
-    }
-  }
-
-  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
-    width: 90%;
-    outline: none;
-    border: none;
-  }
-
-  .algolia-autocomplete .aa-hint {
-    color: #999;
-  }
-  .algolia-autocomplete .aa-dropdown-menu {
-    width: 550px;
-    max-height: 70vh;
-    overflow-x: visible;
-    overflow-y: scroll;
-    padding: 5px;
-    margin-top: 3px;
-    margin-left: -150px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #999;
-    border-top: none;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-    cursor: pointer;
-    padding: 5px 4px;
-    border-bottom: 1px solid #eee;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
-    border-bottom: none;
-    margin-bottom: 2px;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
-    overflow: hidden;
-    font-size: 0.8em;
-    line-height: 1.4em;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
-    font-size: 1rem;
-    margin-block-start: 0;
-    margin-block-end: 5px;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
-    display: inline-block;
-    overflow: hidden;
-    height: 2.8em;
-    width: 80%;
-    margin-right: 4%;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
-    display: inline-block;
-    width: 15%;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
-    height: 3em;
-    width: auto;
-    display: none;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
-    display: initial;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-    background-color: #eee;
-  }
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  </style>
-
-
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
 
@@ -2096,323 +1499,522 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
-  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
-  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="Auto-BusinessDS_files/header-attrs-2.27/header-attrs.js"></script>
+  <script src="Auto-BusinessDS_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="Auto-BusinessDS_files/popper-2.6.0/popper.min.js"></script>
+  <link href="Auto-BusinessDS_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="Auto-BusinessDS_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="Auto-BusinessDS_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="Auto-BusinessDS_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="Auto-BusinessDS_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="Auto-BusinessDS_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="Auto-BusinessDS_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Projects","authors":[]}
+{"title":"Auto-Business DS","description":"From messy questions to what is knowable, identifiable, and actionable","authors":[],"publishedDate":"2026-05-10T00:00:00.000-04:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a href="index.html" class="title">Peter's Stuff</a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="blog.html">Blogs</a>
-<a href="snippets.html">Snippets</a>
-<a href="projects.html">Projects</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).on("load", function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      page_category = decodeURIComponent(page_category)
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-apply-limit l-page">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Projects">Projects</h1>
-<a href="posts/autods/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">May 10, 2026</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Auto-Business DS</h2>
-<div class="dt-tags"></div>
-<p>From messy questions to what is knowable, identifiable, and actionable</p>
-</div>
-</a>
-<a href="posts/J6C_transcript_processing/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Jan. 5, 2023</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>January 6 Commitee Transcript Processing</h2>
-<div class="dt-tags"></div>
-<p>Some basic text processing of the transcripts</p>
-</div>
-</a>
-<a href="posts/ponies/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Nov. 28, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Ponies</h2>
-<div class="dt-tags"></div>
-<p>Data science and horse racing</p>
-</div>
-</a>
-<a href="posts/mma_in_ds/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Nov. 19, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img src="posts/mma_in_ds/mma_blog_plot.png"/>
-</div>
-<div class="description">
-<h2>Probabilistic Modeling with Mathematica</h2>
-<div class="dt-tags"></div>
-<p>Using Mathematica to do some cool data science things</p>
-</div>
-</a>
-<a href="posts/why_not_r/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Oct. 16, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Why Not R</h2>
-<div class="dt-tags"></div>
-<p>Why not use R for all courses in Commerce (BComm and MBA)?</p>
-</div>
-</a>
-<a href="posts/ordinal_regression/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">April 30, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Ordinal Regression</h2>
-<div class="dt-tags"></div>
-<p>An Introduction to Ordinal Regression</p>
-</div>
-</a>
-<a href="posts/betareg/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">April 17, 2022</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Beta Regression</h2>
-<div class="dt-tags"></div>
-<p>An Introduction to Beta Regression</p>
-</div>
-</a>
-<a href="posts/greta_and_causact/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 26, 2021</div>
-<div class="dt-authors"></div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Greta and Causact</h2>
-<div class="dt-tags"></div>
-<p>Bayesian Models with Greta and Causact</p>
-</div>
-</a>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Projects</h1>
+<h1>Auto-Business DS</h1>
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>From messy questions to what is knowable, identifiable, and actionable</p></p>
 </div>
 
 
 <div class="d-article">
+<p>Businesses need simple answers to complex questions. And increasingly, organizations do not have the time, expertise, or appetite to translate them into formal decision-theoretic problems. If statisticians insist on full procedural rigor before giving an answer, they will be bypassed.</p>
+<p>A business user manager can now upload two datasets to an LLM and ask: “Is the new version better? Yes or no answers only please.” and receive a confident answer in 30 seconds, with no caveats, no discussion of assumptions or their validity, no clarification.</p>
+<p>This is profoundly attractive. It reduces cognitive load and accelerates decisions.</p>
+<p>The danger is not that these systems are foolish. The danger is that they compress ambiguity into certainty without enforcing design discipline. They give single-number answers to multi-dimensional problems. And if statisticians do not provide an alternative that is equally frictionless, the market will select for speed over correctness. If we fail to provide an alternative, we will drift into automated self-deception, where organizations will still automate decision-making—but without
+statistical discipline leading to confident but false conclusions</p>
+<p>Here, we propose such an alternative.</p>
+<h1 id="motivation">1. Motivation</h1>
+<p>Modern business analytics fails in a structural way:</p>
+<ul>
+<li>Users ask vague questions (“Is A better than B?”)</li>
+<li>Systems reduce rich data to single KPIs or p-values</li>
+<li>Causal structure is ignored or assumed implicitly</li>
+<li>Outputs are overconfident and under-qualified</li>
+<li>Increasingly, LLMs are used as “decision arbiters” without statistical grounding</li>
+</ul>
+<p>This leads to a systemic failure mode:</p>
+<p>Automated Self-Deception — confident answers produced without explicit accounting for identifiability, uncertainty, or causal structure.</p>
+<h1 id="core-objective">2. Core Objective</h1>
+<p>Design a system that transforms:</p>
+<p>messy data + vague business question</p>
+<p>into:</p>
+<p>structured causal inference + uncertainty + experiment design + human-readable decision support</p>
+<p>with one key constraint:</p>
+<p>The user never needs to see statistical complexity unless they choose to.</p>
+<h1 id="system-philosophy">3. System Philosophy</h1>
+<p>The system is built on four principles:</p>
+<h2 id="most-changes-do-nothing-prior">3.1 “Most Changes Do Nothing” Prior</h2>
+<p>A global default assumption:</p>
+<p><span class="math display">\[\theta \sim N(0, \tau^2), \quad \tau \text{ small}\]</span></p>
+<p>Meaning:</p>
+<p>Most interventions have negligible effect unless strong evidence suggests otherwise.</p>
+<h2 id="transparency">3.2 Transparency</h2>
+<p>Every result must be classified as:</p>
+<ul>
+<li>✔ supported by data</li>
+<li>⚠ model-dependent</li>
+<li>❌ not identifiable</li>
+</ul>
+<p>This replaces:</p>
+<ul>
+<li>p-values</li>
+<li>single-point estimates</li>
+<li>implicit assumptions</li>
+</ul>
+<h2 id="causal-structure-first">3.3 Causal Structure First</h2>
+<p>All analysis is grounded in:</p>
+<p>explicit causal DAGs constructed from domain knowledge</p>
+<p>not just correlations or regression formulas.</p>
+<h2 id="user-simplicity-internal-complexity">3.4 User Simplicity, Internal Complexity</h2>
+<p>End users see:</p>
+<ul>
+<li>“Version A likely improves retention”</li>
+<li>“No detectable difference”</li>
+<li>“Effect uncertain; more data required”</li>
+</ul>
+<p>They do NOT see:</p>
+<ul>
+<li>DAGs</li>
+<li>priors</li>
+<li>model diagnostics</li>
+<li>identifiability conditions</li>
+</ul>
+<h2 id="system-architecture">4. System Architecture</h2>
+<p>User Question<br />
+↓<br />
+Natural Language Interpreter (LLM)<br />
+↓<br />
+Causal DAG Builder (domain + prior knowledge)<br />
+↓<br />
+Data Profiler + Metric Constructor<br />
+↓<br />
+Model Registry (plugin statistical methods)<br />
+↓<br />
+Model Ladder (Bayesian inference engine)<br />
+↓<br />
+Causal Estimation Layer (marginaleffects-style)<br />
+↓<br />
+Diagnostics + Identifiability Engine<br />
+↓<br />
+Experiment Design Engine<br />
+↓<br />
+Report Generator (business-facing language)</p>
+<h1 id="causal-layer-dag-based-reasoning">5. Causal Layer: DAG-Based Reasoning</h1>
+<h2 id="dag-construction">5.1 DAG Construction</h2>
+<p>The system constructs a DAG using:</p>
+<ul>
+<li>domain knowledge templates</li>
+<li>historical models</li>
+<li>user-provided assumptions</li>
+</ul>
+<p>Example:</p>
+<p>Treatment → Engagement → Revenue
+User Type → Engagement
+User Type → Retention
+Seasonality → Engagement</p>
+<h2 id="purpose">5.2 Purpose</h2>
+<p>The DAG is used to:</p>
+<ul>
+<li>determine confounders</li>
+<li>define adjustment sets</li>
+<li>identify non-identifiable effects</li>
+<li>guide model selection</li>
+</ul>
+<h2 id="output-to-models">5.3 Output to models</h2>
+<p>The DAG determines:</p>
+<ul>
+<li>which variables to control for</li>
+<li>whether causal identification is possible</li>
+<li>whether experiment is required</li>
+</ul>
+<h1 id="model-layer-plugin-based-statistical-system">6. Model Layer: Plugin-Based Statistical System</h1>
+<p>Each statistical method is a declared plugin:</p>
+<p>Required interface:</p>
+<ul>
+<li>input assumptions</li>
+<li>estimand definition</li>
+<li>estimation method</li>
+<li>diagnostics</li>
+<li>output schema</li>
+</ul>
+<p>This allows:</p>
+<p>logistic regression, Bayesian hierarchical models, survival models, etc. to coexist safely</p>
+<h1 id="model-ladder-progressive-inference-system">7. Model Ladder (Progressive Inference System)</h1>
+<p>Instead of one model, the system runs a sequence:</p>
+<h2 id="level-1-baseline">Level 1 — Baseline</h2>
+<p>y ~ treatment + (1 | user)</p>
+<h2 id="level-2-heterogeneity">Level 2 — Heterogeneity</h2>
+<p>y ~ treatment + (1 | user) + treatment:user</p>
+<h2 id="level-3-time-effects">Level 3 — Time effects</h2>
+<p>y ~ treatment + s(time) + (1 | user)</p>
+<h2 id="level-4-full-dynamic-causal-model">Level 4 — Full dynamic causal model</h2>
+<ul>
+<li>GP time structure</li>
+<li>latent engagement processes</li>
+<li>treatment × time interactions</li>
+</ul>
+<p>Key rule:</p>
+<p>Models are not selected — they are tested for:</p>
+<ul>
+<li>identifiability</li>
+<li>predictive improvement</li>
+<li>stability</li>
+</ul>
+<h1 id="causal-estimation-layer-marginaleffects-style">8. Causal Estimation Layer (marginaleffects-style)</h1>
+<p>To make outputs usable for business users:</p>
+<p>The system uses a post-model causal translation layer, inspired by tools like marginaleffects</p>
+<p>Purpose:</p>
+<p>Convert model outputs into:</p>
+<p>interpretable causal effects under DAG-defined interventions</p>
+<p>Example outputs:</p>
+<p>Instead of:</p>
+<p>β = 0.12 ± 0.04</p>
+<p>The system outputs:</p>
+<ul>
+<li>“Increasing feature X is expected to increase retention by 3.2%”</li>
+<li>“Probability that A outperforms B: 0.87”</li>
+<li>“Effect adjusted for user mix and seasonality”</li>
+</ul>
+<p>Key feature:</p>
+<p>This layer:</p>
+<ul>
+<li>hides model complexity</li>
+<li>preserves causal interpretation</li>
+<li>enforces DAG-consistency</li>
+</ul>
+<h1 id="diagnostics-identifiability-engine">9. Diagnostics &amp; Identifiability Engine</h1>
+<p>After each model:</p>
+<ul>
+<li>convergence checks</li>
+<li>posterior predictive checks</li>
+<li>sensitivity to priors</li>
+<li>DAG-consistency validation</li>
+<li>identifiability checks</li>
+</ul>
+<p>Explicit failure reporting:</p>
+<p>Example:</p>
+<p>“User-level time-varying effects are not identifiable due to confounding between seasonality and treatment exposure.”</p>
+<h1 id="experiment-design-engine">10. Experiment Design Engine</h1>
+<p>The system can answer:</p>
+<p>“Can we even learn this from data?”</p>
+<p>Outputs:</p>
+<ol type="1">
+<li>Required data structure</li>
+</ol>
+<ul>
+<li>randomization unit</li>
+<li>required logging schema</li>
+</ul>
+<ol start="2" type="1">
+<li>Sample size estimation</li>
+</ol>
+<ul>
+<li>Bayesian simulation-based power analysis</li>
+</ul>
+<ol start="3" type="1">
+<li>Detectability limits</li>
+</ol>
+<ul>
+<li>smallest detectable effect</li>
+</ul>
+<ol start="4" type="1">
+<li>Experiment recommendation</li>
+</ol>
+<ul>
+<li>A/B vs crossover vs observational sufficiency</li>
+</ul>
+<p>Key output format:</p>
+<ul>
+<li>“A 2% lift requires ~15k users per arm”</li>
+<li>“Effects below 1% are not identifiable with current traffic levels”</li>
+</ul>
+<h1 id="plugin-system-extensibility-layer">11. Plugin System (Extensibility Layer)</h1>
+<p>Any statistical method can be added if it declares:</p>
+<ul>
+<li>assumptions</li>
+<li>estimand</li>
+<li>estimation procedure</li>
+<li>diagnostics</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li>logistic regression plugin</li>
+<li>survival analysis plugin</li>
+<li>Bayesian hierarchical plugin</li>
+<li>causal forest plugin (future)</li>
+</ul>
+<p>This makes the system:</p>
+<p>a statistical operating system, not a fixed model pipeline</p>
+<h1 id="report-layer-final-output">12. Report Layer (Final Output)</h1>
+<p>Every run produces a structured report:</p>
+<h2 id="what-is-supported-by-data">12.1 What is supported by data</h2>
+<ul>
+<li>stable causal effects</li>
+<li>robust across models</li>
+</ul>
+<h2 id="what-is-model-dependent">12.2 What is model-dependent</h2>
+<ul>
+<li>heterogeneity structure</li>
+<li>time dynamics</li>
+<li>prior sensitivity</li>
+</ul>
+<h2 id="what-is-not-identifiable">12.3 What is not identifiable</h2>
+<ul>
+<li>long-term effects</li>
+<li>causal mechanisms</li>
+<li>unobserved behavioral states</li>
+</ul>
+<h2 id="what-would-make-it-identifiable">12.4 What would make it identifiable</h2>
+<ul>
+<li>more data</li>
+<li>better instrumentation</li>
+<li>randomized design</li>
+<li>longer observation window</li>
+</ul>
+<h2 id="experiment-design-if-needed">12.5 Experiment design (if needed)</h2>
+<ul>
+<li>sample size</li>
+<li>duration</li>
+<li>detectability limits</li>
+</ul>
+<h1 id="user-interface-principle">13. User Interface Principle</h1>
+<p>The end user NEVER sees:</p>
+<ul>
+<li>DAGs</li>
+<li>priors</li>
+<li>model diagnostics</li>
+<li>identifiability math</li>
+<li>statistical terminology (unless requested)</li>
+</ul>
+<p>They see:</p>
+<p>clear, decision-oriented statements with uncertainty and caveats</p>
+<h1 id="minimal-viable-prototype-r-based">14. Minimal Viable Prototype (R-based)</h1>
+<p>Built with:</p>
+<ul>
+<li>brms → Bayesian inference</li>
+<li>marginaleffects → causal summaries</li>
+<li>plugin registry → model extensibility</li>
+<li>simulation layer → experiment design</li>
+<li>reporting layer → user-facing output</li>
+</ul>
+<p>MVP model:</p>
+<p>log(y + 1) ~ treatment + (1 | user)</p>
+<p>MVP output:</p>
+<ul>
+<li>probability A &gt; B</li>
+<li>uncertainty interval</li>
+<li>simple decision recommendation</li>
+</ul>
+<h1 id="final-system-identity">15. Final System Identity</h1>
+<p>This system is:</p>
+<p>A modular causal + Bayesian + plugin-based inference engine that translates messy business questions into formally grounded statements about what is identifiable, what is uncertain, and what actions are justified.</p>
+<p>Not:</p>
+<ul>
+<li>a dashboard</li>
+<li>an A/B tool</li>
+<li>an LLM wrapper</li>
+<li>or a single statistical model</li>
+</ul>
+<h1 id="core-insight">16. Core Insight</h1>
+<p>The system fundamentally shifts the question:</p>
+<p>From:</p>
+<p>“What is the answer?”</p>
+<p>To:</p>
+<p>“What is knowable from this data, under what assumptions, and what would we need to know more?”</p>
+<h1 id="end-to-end-example-what-a-user-asks-vs-what-the-system-does">17. End-to-End Example: What a User Asks vs What the System Does</h1>
+<p>This section illustrates the system in practice. The goal is to make clear how a user with a vague business question is transformed into:</p>
+<ul>
+<li>causal structure (DAG)</li>
+<li>statistical modeling (model ladder + plugins)</li>
+<li>identifiability analysis</li>
+<li>experiment design (if needed)</li>
+<li>and finally a business-facing decision report</li>
+</ul>
+<h2 id="user-question-what-the-system-receives">17.1 User Question (what the system receives)</h2>
+<p>“We launched a new version of our website (B). Is it better than the old version (A)?”</p>
+<p>Data provided:</p>
+<ul>
+<li>10,000 users total</li>
+<li>randomized: 5,000 A / 5,000 B</li>
+<li>outcomes:
+<ul>
+<li>visits per user</li>
+<li>session duration</li>
+<li>conversion (binary)</li>
+</ul></li>
+<li>observation window: 3 weeks post-launch</li>
+<li>historical data: 1 year pre-experiment</li>
+</ul>
+<p>User intent is vague:</p>
+<ul>
+<li>“better” is not defined</li>
+<li>multiple competing metrics exist</li>
+<li>strong heterogeneity expected</li>
+</ul>
+<h2 id="step-1-system-interpretation">17.2 Step 1 — System Interpretation</h2>
+<p>The system translates the question into:</p>
+<p>Implicit estimands:</p>
+<ul>
+<li>effect on conversion rate</li>
+<li>effect on engagement (visits, duration)</li>
+<li>possible long-term retention impact (not directly observed)</li>
+</ul>
+<h2 id="step-2-causal-dag-construction">17.3 Step 2 — Causal DAG Construction</h2>
+<p>The system builds a causal model such as:</p>
+<p>Treatment → Engagement → Conversion → Revenue
+User Type → Engagement
+User Type → Conversion
+Time → Engagement
+Time → Conversion</p>
+<p>Key insight:</p>
+<ul>
+<li>engagement is both a mediator and confounder of downstream effects</li>
+<li>time introduces drift (novelty effects, seasonality)</li>
+</ul>
+<h2 id="step-3-identifiability-check">17.4 Step 3 — Identifiability Check</h2>
+<p>The system evaluates:</p>
+<ul>
+<li>short-term conversion effect → identifiable (randomized)</li>
+<li>engagement effect → identifiable (randomized)</li>
+<li>long-term retention → not identifiable (insufficient time window)</li>
+<li>mechanism (why users changed behavior) → not identifiable</li>
+</ul>
+<h2 id="step-4-model-ladder-execution">17.5 Step 4 — Model Ladder Execution</h2>
+<p>Model 1 (baseline)</p>
+<p>conversion ~ treatment + (1 | user)</p>
+<p>Result:</p>
+<ul>
+<li>clear small positive effect</li>
+<li>stable convergence</li>
+</ul>
+<p>Model 2 (heterogeneity)</p>
+<p>conversion ~ treatment + (1 | user) + treatment:user</p>
+<p>Result:</p>
+<ul>
+<li>moderate user-level variation</li>
+<li>some users strongly positive, others neutral</li>
+</ul>
+<p>Model 3 (time effects)</p>
+<p>conversion ~ treatment + s(time) + (1 | user)</p>
+<p>Result:</p>
+<ul>
+<li>early uplift stronger than later period</li>
+<li>suggests novelty effect, but partially confounded with learning</li>
+</ul>
+<h2 id="step-5-causal-estimation-layer-business-translation">17.6 Step 5 — Causal Estimation Layer (business translation)</h2>
+<p>Using DAG-consistent adjustment + marginaleffects-style summaries:</p>
+<ul>
+<li>Average treatment effect on conversion:
+<ul>
+<li>+1.8% increase</li>
+<li>P(A &lt; B) = 0.91</li>
+</ul></li>
+<li>Engagement:
+<ul>
+<li>visits per user: +6%</li>
+<li>session duration: +3.5%</li>
+</ul></li>
+<li>No credible evidence for:
+<ul>
+<li>long-term retention impact (insufficient horizon)</li>
+</ul></li>
+</ul>
+<h2 id="step-6-diagnostic-model-validity-report">17.7 Step 6 — Diagnostic + Model Validity Report</h2>
+<p>The system flags:</p>
+<ul>
+<li>✔ convergence is stable across models</li>
+<li>✔ posterior predictions are well calibrated</li>
+<li>⚠ time-varying effects are weakly identified</li>
+<li>⚠ engagement → conversion pathway is partially confounded by novelty effects</li>
+<li>❌ long-term retention effects are not identifiable</li>
+</ul>
+<h2 id="step-7-experiment-design-output-if-user-asks-what-next">17.8 Step 7 — Experiment Design Output (if user asks “what next?”)</h2>
+<p>The system provides:</p>
+<p>Detectability analysis:</p>
+<ul>
+<li>smallest detectable lift at current traffic:
+<ul>
+<li>~1.2% for conversion</li>
+</ul></li>
+<li>effect sizes below this cannot be reliably distinguished from noise</li>
+</ul>
+<p>Recommendations:</p>
+<ul>
+<li>extend experiment to 6–8 weeks for retention effects</li>
+<li>or introduce staggered rollout design</li>
+<li>or collect additional session-level behavioral signals</li>
+</ul>
+<p>Required additional data:</p>
+<ul>
+<li>repeated user-level exposure tracking</li>
+<li>longer post-treatment window</li>
+<li>finer-grained engagement logs (scroll depth, clicks)</li>
+</ul>
+<h2 id="step-8-final-report-what-user-sees">17.9 Step 8 — Final Report (what user sees)</h2>
+<p>✔ What is supported by data</p>
+<ul>
+<li>Version B improves conversion (~+1.8%)</li>
+<li>Engagement metrics improve consistently</li>
+<li>Effect is robust across model specifications</li>
+</ul>
+<p>⚠ What is model-dependent</p>
+<ul>
+<li>size of engagement effect varies slightly across models</li>
+<li>time decay pattern depends on smoothing assumptions</li>
+</ul>
+<p>❌ What is not identifiable</p>
+<ul>
+<li>long-term retention impact</li>
+<li>whether improvement is due to satisfaction vs friction changes</li>
+<li>causal mechanism of engagement increase</li>
+</ul>
+<p>📌 What would make this knowable</p>
+<ul>
+<li>longer observation period (≥ 6–8 weeks)</li>
+<li>retention tracking beyond current window</li>
+<li>richer behavioral instrumentation</li>
+<li>potential crossover or repeated exposure design</li>
+</ul>
+<h2 id="final-system-output-business-facing-summary">17.10 Final system output (business-facing summary)</h2>
+<p>Version B is likely to improve short-term conversion and engagement.
+The probability that B outperforms A on conversion is 0.91.
+However, long-term retention effects cannot be determined from the current experiment duration.
+Additional data or extended observation would be required to evaluate long-term impact.</p>
+<h2 id="key-takeaway-from-this-example">17.11 Key takeaway from this example</h2>
+<p>This system does NOT answer:</p>
+<p>“Is B better than A?”</p>
+<p>It answers:</p>
+<p>“What effects can be reliably inferred from the data, under a causal model, and what additional information would resolve remaining uncertainty?”</p>
+<h1 id="apendix-a-appendix-probabilistic-statistical-model-transition-graph">Apendix A: Appendix: Probabilistic Statistical Model Transition Graph</h1>
+<p>A central component of the proposed system is a probabilistic transition graph over statistical models and their failure modes. This structure formalizes expert statistical practice—typically implicit, experience-based, and distributed across textbooks—into a machine-usable representation that supports automated model escalation, diagnosis, and robustness checking.</p>
+<p>In this graph, each node represents a statistical model (e.g., Poisson regression, logistic regression, linear regression, negative binomial regression), and directed edges represent diagnosis-driven transitions between models. For example, an edge from Poisson regression to negative binomial regression is activated when diagnostics indicate overdispersion. Similarly, logistic regression may transition to penalized or Bayesian logistic regression under conditions of separation or instability. Unlike deterministic rule systems, these transitions are probabilistic, meaning each edge is associated with a weight representing the strength of evidence that the transition is appropriate given the detected failure mode.</p>
+<p>These weights are not assumed to be fixed or universally correct. Instead, they are treated as learned or calibrated quantities, derived from a combination of sources: statistical literature (via structured extraction from textbooks and papers), expert heuristics, and—critically—empirical validation through simulation. In this sense, the graph is not merely a reflection of statistical theory, but an evolving object that integrates theory with observed model behaviour under controlled data-generating processes. This allows the system to refine its understanding of when particular statistical methods fail and which alternatives are most robust under specific conditions.</p>
+<p>Operationally, the transition graph functions as the backbone of the system’s model laddering mechanism. When a model is fit to data, diagnostic checks are computed (e.g., dispersion statistics, convergence metrics, residual structure). If a failure mode is detected, the graph is queried to propose one or more alternative models, which are then evaluated in turn. This creates a closed-loop system of fit → diagnose → transition → refit, allowing the system to automatically adapt model complexity to the structure of the data without requiring explicit user intervention.</p>
+<p>Overall, the probabilistic transition graph provides a principled way to encode statistical “know-how” into a computational structure. It bridges the gap between informal statistical reasoning in practice and formal automated inference systems, enabling robust, adaptive model selection that is both data-driven and informed by statistical theory.</p>
+<h1 id="use-of-generative-ai-tools-declaration">Use of Generative-AI Tools Declaration</h1>
+<p>This post was developed through iterative discussion with ChatGPT, which was used to help explore ideas, structure arguments, and draft and organize content. To paraphrase Borges: “I do not know which one of us has written this post”. But any flaws are the human’s responsibility.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2421,6 +2023,15 @@ function init_posts_list() {
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

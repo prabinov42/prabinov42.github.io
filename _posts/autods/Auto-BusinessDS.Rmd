@@ -1,0 +1,630 @@
+---
+title: "Auto-Business DS"
+description: |
+  From messy questions to what is knowable, identifiable, and actionable
+date: 2026-05-10
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Businesses need simple answers to complex questions. And increasingly, organizations do not have the time, expertise, or appetite to translate them into formal decision-theoretic problems. If statisticians insist on full procedural rigor before giving an answer, they will be bypassed.
+
+A business user manager can now upload two datasets to an LLM and ask: "Is the new version better? Yes or no answers only please." and receive a confident answer in 30 seconds, with no caveats, no discussion of assumptions or their validity, no clarification. 
+
+This is profoundly attractive. It reduces cognitive load and accelerates decisions.
+
+The danger is not that these systems are foolish. The danger is that they compress ambiguity into certainty without enforcing design discipline. They give single-number answers to multi-dimensional problems. And if statisticians do not provide an alternative that is equally frictionless, the market will select for speed over correctness. If we fail to provide an alternative, we will drift into automated self-deception, where organizations will still automate decision-making—but without 
+statistical discipline leading to confident but false conclusions
+
+Here, we propose such an alternative.
+
+
+
+
+# 1. Motivation
+
+Modern business analytics fails in a structural way:
+
+* Users ask vague questions (“Is A better than B?”)
+* Systems reduce rich data to single KPIs or p-values
+* Causal structure is ignored or assumed implicitly
+* Outputs are overconfident and under-qualified
+* Increasingly, LLMs are used as “decision arbiters” without statistical grounding
+
+This leads to a systemic failure mode:
+
+Automated Self-Deception — confident answers produced without explicit accounting for identifiability, uncertainty, or causal structure.
+
+# 2. Core Objective
+
+Design a system that transforms:
+
+messy data + vague business question
+
+into:
+
+structured causal inference + uncertainty + experiment design + human-readable decision support
+
+with one key constraint:
+
+The user never needs to see statistical complexity unless they choose to.
+
+# 3. System Philosophy
+
+The system is built on four principles:
+
+## 3.1 “Most Changes Do Nothing” Prior
+
+A global default assumption:
+
+$$\theta \sim N(0, \tau^2), \quad \tau \text{ small}$$
+
+Meaning:
+
+Most interventions have negligible effect unless strong evidence suggests otherwise.
+
+## 3.2 Transparency
+
+Every result must be classified as:
+
+* ✔ supported by data
+* ⚠ model-dependent
+* ❌ not identifiable
+
+This replaces:
+
+* p-values
+* single-point estimates
+* implicit assumptions
+
+## 3.3 Causal Structure First
+
+All analysis is grounded in:
+
+explicit causal DAGs constructed from domain knowledge
+
+not just correlations or regression formulas.
+
+## 3.4 User Simplicity, Internal Complexity
+
+End users see:
+
+* “Version A likely improves retention”
+* “No detectable difference”
+* “Effect uncertain; more data required”
+
+They do NOT see:
+
+* DAGs
+* priors
+* model diagnostics
+* identifiability conditions
+
+## 4. System Architecture
+
+User Question  
+     ↓  
+Natural Language Interpreter (LLM)  
+     ↓  
+Causal DAG Builder (domain + prior knowledge)  
+     ↓  
+Data Profiler + Metric Constructor  
+     ↓  
+Model Registry (plugin statistical methods)  
+     ↓  
+Model Ladder (Bayesian inference engine)  
+     ↓  
+Causal Estimation Layer (marginaleffects-style)  
+     ↓  
+Diagnostics + Identifiability Engine  
+     ↓  
+Experiment Design Engine  
+     ↓  
+Report Generator (business-facing language)  
+
+# 5. Causal Layer: DAG-Based Reasoning
+
+## 5.1 DAG Construction
+
+The system constructs a DAG using:
+
+* domain knowledge templates
+* historical models
+* user-provided assumptions
+
+Example:
+
+Treatment → Engagement → Revenue
+User Type → Engagement
+User Type → Retention
+Seasonality → Engagement
+
+## 5.2 Purpose
+
+The DAG is used to:
+
+* determine confounders
+* define adjustment sets
+* identify non-identifiable effects
+* guide model selection
+
+## 5.3 Output to models
+
+The DAG determines:
+
+* which variables to control for
+* whether causal identification is possible
+* whether experiment is required
+
+# 6. Model Layer: Plugin-Based Statistical System
+
+Each statistical method is a declared plugin:
+
+Required interface:
+
+* input assumptions
+* estimand definition
+* estimation method
+* diagnostics
+* output schema
+
+This allows:
+
+logistic regression, Bayesian hierarchical models, survival models, etc. to coexist safely
+
+# 7. Model Ladder (Progressive Inference System)
+
+Instead of one model, the system runs a sequence:
+
+## Level 1 — Baseline
+
+y ~ treatment + (1 | user)
+
+## Level 2 — Heterogeneity
+
+y ~ treatment + (1 | user) + treatment:user
+
+## Level 3 — Time effects
+
+y ~ treatment + s(time) + (1 | user)
+
+## Level 4 — Full dynamic causal model
+
+* GP time structure
+* latent engagement processes
+* treatment × time interactions
+
+
+Key rule:
+
+Models are not selected — they are tested for:
+
+* identifiability
+* predictive improvement
+* stability
+
+
+# 8. Causal Estimation Layer (marginaleffects-style)
+
+To make outputs usable for business users:
+
+The system uses a post-model causal translation layer, inspired by tools like marginaleffects
+
+
+Purpose:
+
+Convert model outputs into:
+
+interpretable causal effects under DAG-defined interventions
+
+
+
+Example outputs:
+
+Instead of:
+
+β = 0.12 ± 0.04
+
+The system outputs:
+
+* “Increasing feature X is expected to increase retention by 3.2%”
+* “Probability that A outperforms B: 0.87”
+* “Effect adjusted for user mix and seasonality”
+
+
+
+Key feature:
+
+This layer:
+
+* hides model complexity
+* preserves causal interpretation
+* enforces DAG-consistency
+
+# 9. Diagnostics & Identifiability Engine
+
+After each model:
+
+* convergence checks
+* posterior predictive checks
+* sensitivity to priors
+* DAG-consistency validation
+* identifiability checks
+
+
+
+Explicit failure reporting:
+
+Example:
+
+“User-level time-varying effects are not identifiable due to confounding between seasonality and treatment exposure.”
+
+
+# 10. Experiment Design Engine
+
+The system can answer:
+
+“Can we even learn this from data?”
+
+
+Outputs:
+
+1. Required data structure
+
+* randomization unit
+* required logging schema
+
+2. Sample size estimation
+
+* Bayesian simulation-based power analysis
+
+3. Detectability limits
+
+* smallest detectable effect
+
+4. Experiment recommendation
+
+* A/B vs crossover vs observational sufficiency
+
+
+
+Key output format:
+
+* “A 2% lift requires ~15k users per arm”
+* “Effects below 1% are not identifiable with current traffic levels”
+
+# 11. Plugin System (Extensibility Layer)
+
+Any statistical method can be added if it declares:
+
+* assumptions
+* estimand
+* estimation procedure
+* diagnostics
+
+Example:
+
+* logistic regression plugin
+* survival analysis plugin
+* Bayesian hierarchical plugin
+* causal forest plugin (future)
+
+This makes the system:
+
+a statistical operating system, not a fixed model pipeline
+
+# 12. Report Layer (Final Output)
+
+Every run produces a structured report:
+
+## 12.1 What is supported by data
+
+* stable causal effects
+* robust across models
+
+## 12.2 What is model-dependent
+
+* heterogeneity structure
+* time dynamics
+* prior sensitivity
+
+## 12.3 What is not identifiable
+
+* long-term effects
+* causal mechanisms
+* unobserved behavioral states
+
+## 12.4 What would make it identifiable
+
+* more data
+* better instrumentation
+* randomized design
+* longer observation window
+
+## 12.5 Experiment design (if needed)
+
+* sample size
+* duration
+* detectability limits
+
+# 13. User Interface Principle
+
+The end user NEVER sees:
+
+* DAGs
+* priors
+* model diagnostics
+* identifiability math
+* statistical terminology (unless requested)
+
+They see:
+
+clear, decision-oriented statements with uncertainty and caveats
+
+# 14. Minimal Viable Prototype (R-based)
+
+Built with:
+
+* brms → Bayesian inference
+* marginaleffects → causal summaries
+* plugin registry → model extensibility
+* simulation layer → experiment design
+* reporting layer → user-facing output
+
+
+
+MVP model:
+
+log(y + 1) ~ treatment + (1 | user)
+
+
+
+MVP output:
+
+* probability A > B
+* uncertainty interval
+* simple decision recommendation
+
+
+
+# 15. Final System Identity
+
+This system is:
+
+A modular causal + Bayesian + plugin-based inference engine that translates messy business questions into formally grounded statements about what is identifiable, what is uncertain, and what actions are justified.
+
+Not:
+
+* a dashboard
+* an A/B tool
+* an LLM wrapper
+* or a single statistical model
+
+# 16. Core Insight
+
+The system fundamentally shifts the question:
+
+From:
+
+“What is the answer?”
+
+To:
+
+“What is knowable from this data, under what assumptions, and what would we need to know more?”
+
+
+# 17. End-to-End Example: What a User Asks vs What the System Does
+
+This section illustrates the system in practice. The goal is to make clear how a user with a vague business question is transformed into:
+
+* causal structure (DAG)
+* statistical modeling (model ladder + plugins)
+* identifiability analysis
+* experiment design (if needed)
+* and finally a business-facing decision report
+
+
+## 17.1 User Question (what the system receives)
+
+“We launched a new version of our website (B). Is it better than the old version (A)?”
+
+Data provided:
+
+* 10,000 users total
+* randomized: 5,000 A / 5,000 B
+* outcomes:
+    * visits per user
+    * session duration
+    * conversion (binary)
+* observation window: 3 weeks post-launch
+* historical data: 1 year pre-experiment
+
+User intent is vague:
+
+* “better” is not defined
+* multiple competing metrics exist
+* strong heterogeneity expected
+
+## 17.2 Step 1 — System Interpretation
+
+The system translates the question into:
+
+Implicit estimands:
+
+* effect on conversion rate
+* effect on engagement (visits, duration)
+* possible long-term retention impact (not directly observed)
+
+## 17.3 Step 2 — Causal DAG Construction
+
+The system builds a causal model such as:
+
+Treatment → Engagement → Conversion → Revenue
+User Type → Engagement
+User Type → Conversion
+Time → Engagement
+Time → Conversion
+
+Key insight:
+
+* engagement is both a mediator and confounder of downstream effects
+* time introduces drift (novelty effects, seasonality)
+
+## 17.4 Step 3 — Identifiability Check
+
+The system evaluates:
+
+* short-term conversion effect → identifiable (randomized)
+* engagement effect → identifiable (randomized)
+* long-term retention → not identifiable (insufficient time window)
+* mechanism (why users changed behavior) → not identifiable
+
+## 17.5 Step 4 — Model Ladder Execution
+
+Model 1 (baseline)
+
+conversion ~ treatment + (1 | user)
+
+Result:
+
+* clear small positive effect
+* stable convergence
+
+
+Model 2 (heterogeneity)
+
+conversion ~ treatment + (1 | user) + treatment:user
+
+Result:
+
+* moderate user-level variation
+* some users strongly positive, others neutral
+
+
+
+Model 3 (time effects)
+
+conversion ~ treatment + s(time) + (1 | user)
+
+Result:
+
+* early uplift stronger than later period
+* suggests novelty effect, but partially confounded with learning
+
+## 17.6 Step 5 — Causal Estimation Layer (business translation)
+
+Using DAG-consistent adjustment + marginaleffects-style summaries:
+
+* Average treatment effect on conversion:
+    * +1.8% increase
+    * P(A < B) = 0.91
+* Engagement:
+    * visits per user: +6%
+    * session duration: +3.5%
+* No credible evidence for:
+    * long-term retention impact (insufficient horizon)
+
+## 17.7 Step 6 — Diagnostic + Model Validity Report
+
+The system flags:
+
+* ✔ convergence is stable across models
+* ✔ posterior predictions are well calibrated
+* ⚠ time-varying effects are weakly identified
+* ⚠ engagement → conversion pathway is partially confounded by novelty effects
+* ❌ long-term retention effects are not identifiable
+
+## 17.8 Step 7 — Experiment Design Output (if user asks “what next?”)
+
+The system provides:
+
+Detectability analysis:
+
+* smallest detectable lift at current traffic:
+    * ~1.2% for conversion
+* effect sizes below this cannot be reliably distinguished from noise
+
+Recommendations:
+
+* extend experiment to 6–8 weeks for retention effects
+* or introduce staggered rollout design
+* or collect additional session-level behavioral signals
+
+Required additional data:
+
+* repeated user-level exposure tracking
+* longer post-treatment window
+* finer-grained engagement logs (scroll depth, clicks)
+
+## 17.9 Step 8 — Final Report (what user sees)
+
+✔ What is supported by data
+
+* Version B improves conversion (~+1.8%)
+* Engagement metrics improve consistently
+* Effect is robust across model specifications
+
+
+
+⚠ What is model-dependent
+
+* size of engagement effect varies slightly across models
+* time decay pattern depends on smoothing assumptions
+
+
+
+❌ What is not identifiable
+
+* long-term retention impact
+* whether improvement is due to satisfaction vs friction changes
+* causal mechanism of engagement increase
+
+
+
+📌 What would make this knowable
+
+* longer observation period (≥ 6–8 weeks)
+* retention tracking beyond current window
+* richer behavioral instrumentation
+* potential crossover or repeated exposure design
+
+## 17.10 Final system output (business-facing summary)
+
+Version B is likely to improve short-term conversion and engagement.
+The probability that B outperforms A on conversion is 0.91.
+However, long-term retention effects cannot be determined from the current experiment duration.
+Additional data or extended observation would be required to evaluate long-term impact.
+
+## 17.11 Key takeaway from this example
+
+This system does NOT answer:
+
+“Is B better than A?”
+
+It answers:
+
+“What effects can be reliably inferred from the data, under a causal model, and what additional information would resolve remaining uncertainty?”
+
+# Apendix A: Appendix: Probabilistic Statistical Model Transition Graph
+
+A central component of the proposed system is a probabilistic transition graph over statistical models and their failure modes. This structure formalizes expert statistical practice—typically implicit, experience-based, and distributed across textbooks—into a machine-usable representation that supports automated model escalation, diagnosis, and robustness checking.
+
+In this graph, each node represents a statistical model (e.g., Poisson regression, logistic regression, linear regression, negative binomial regression), and directed edges represent diagnosis-driven transitions between models. For example, an edge from Poisson regression to negative binomial regression is activated when diagnostics indicate overdispersion. Similarly, logistic regression may transition to penalized or Bayesian logistic regression under conditions of separation or instability. Unlike deterministic rule systems, these transitions are probabilistic, meaning each edge is associated with a weight representing the strength of evidence that the transition is appropriate given the detected failure mode.
+
+These weights are not assumed to be fixed or universally correct. Instead, they are treated as learned or calibrated quantities, derived from a combination of sources: statistical literature (via structured extraction from textbooks and papers), expert heuristics, and—critically—empirical validation through simulation. In this sense, the graph is not merely a reflection of statistical theory, but an evolving object that integrates theory with observed model behaviour under controlled data-generating processes. This allows the system to refine its understanding of when particular statistical methods fail and which alternatives are most robust under specific conditions.
+
+Operationally, the transition graph functions as the backbone of the system’s model laddering mechanism. When a model is fit to data, diagnostic checks are computed (e.g., dispersion statistics, convergence metrics, residual structure). If a failure mode is detected, the graph is queried to propose one or more alternative models, which are then evaluated in turn. This creates a closed-loop system of fit → diagnose → transition → refit, allowing the system to automatically adapt model complexity to the structure of the data without requiring explicit user intervention.
+
+Overall, the probabilistic transition graph provides a principled way to encode statistical “know-how” into a computational structure. It bridges the gap between informal statistical reasoning in practice and formal automated inference systems, enabling robust, adaptive model selection that is both data-driven and informed by statistical theory.
+
+
+
+# Use of Generative-AI Tools Declaration
+
+This post was developed through iterative discussion with ChatGPT, which was used to help explore ideas, structure arguments, and draft and organize content. To paraphrase Borges: “I do not know which one of us has written this post”. But any flaws are the human’s responsibility.
+
