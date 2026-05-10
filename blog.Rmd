@@ -178,6 +178,7 @@ Obviously, I'd ask ChatGPT how to do so. It's reply was interesting - among othe
 
 ChatGPT is demonstrating more self-awareness than some people I know!
 
+So after some more conversations, we came up with this https://prabinov42.github.io/posts/autods/
 
 
 
