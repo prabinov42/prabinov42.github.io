@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"NULL"}
+  {"type":"character","attributes":{},"value":["Auto-BusinessDS_files/anchor-4.2.2/anchor.min.js","Auto-BusinessDS_files/bowser-1.9.3/bowser.min.js","Auto-BusinessDS_files/distill-2.2.21/template.v2.js","Auto-BusinessDS_files/header-attrs-2.27/header-attrs.js","Auto-BusinessDS_files/jquery-3.6.0/jquery-3.6.0.js","Auto-BusinessDS_files/jquery-3.6.0/jquery-3.6.0.min.js","Auto-BusinessDS_files/jquery-3.6.0/jquery-3.6.0.min.map","Auto-BusinessDS_files/popper-2.6.0/popper.min.js","Auto-BusinessDS_files/tippy-6.2.7/tippy-bundle.umd.min.js","Auto-BusinessDS_files/tippy-6.2.7/tippy-light-border.css","Auto-BusinessDS_files/tippy-6.2.7/tippy.css","Auto-BusinessDS_files/tippy-6.2.7/tippy.umd.min.js","Auto-BusinessDS_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -2007,7 +2007,7 @@ Additional data or extended observation would be required to evaluate long-term 
 <p>“Is B better than A?”</p>
 <p>It answers:</p>
 <p>“What effects can be reliably inferred from the data, under a causal model, and what additional information would resolve remaining uncertainty?”</p>
-<h1 id="apendix-a-appendix-probabilistic-statistical-model-transition-graph">Apendix A: Appendix: Probabilistic Statistical Model Transition Graph</h1>
+<h1 id="apendix-a-probabilistic-statistical-model-transition-graph">Apendix A: Probabilistic Statistical Model Transition Graph</h1>
 <p>A central component of the proposed system is a probabilistic transition graph over statistical models and their failure modes. This structure formalizes expert statistical practice—typically implicit, experience-based, and distributed across textbooks—into a machine-usable representation that supports automated model escalation, diagnosis, and robustness checking.</p>
 <p>In this graph, each node represents a statistical model (e.g., Poisson regression, logistic regression, linear regression, negative binomial regression), and directed edges represent diagnosis-driven transitions between models. For example, an edge from Poisson regression to negative binomial regression is activated when diagnostics indicate overdispersion. Similarly, logistic regression may transition to penalized or Bayesian logistic regression under conditions of separation or instability. Unlike deterministic rule systems, these transitions are probabilistic, meaning each edge is associated with a weight representing the strength of evidence that the transition is appropriate given the detected failure mode.</p>
 <p>These weights are not assumed to be fixed or universally correct. Instead, they are treated as learned or calibrated quantities, derived from a combination of sources: statistical literature (via structured extraction from textbooks and papers), expert heuristics, and—critically—empirical validation through simulation. In this sense, the graph is not merely a reflection of statistical theory, but an evolving object that integrates theory with observed model behaviour under controlled data-generating processes. This allows the system to refine its understanding of when particular statistical methods fail and which alternatives are most robust under specific conditions.</p>

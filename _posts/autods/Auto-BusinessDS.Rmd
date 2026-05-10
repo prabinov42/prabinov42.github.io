@@ -610,7 +610,7 @@ It answers:
 
 “What effects can be reliably inferred from the data, under a causal model, and what additional information would resolve remaining uncertainty?”
 
-# Apendix A: Appendix: Probabilistic Statistical Model Transition Graph
+# Apendix A: Probabilistic Statistical Model Transition Graph
 
 A central component of the proposed system is a probabilistic transition graph over statistical models and their failure modes. This structure formalizes expert statistical practice—typically implicit, experience-based, and distributed across textbooks—into a machine-usable representation that supports automated model escalation, diagnosis, and robustness checking.
 
