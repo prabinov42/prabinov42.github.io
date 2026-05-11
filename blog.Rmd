@@ -181,6 +181,15 @@ ChatGPT is demonstrating more self-awareness than some people I know!
 So after some more conversations, we came up with this https://prabinov42.github.io/posts/autods/
 
 
+### But but but AI will eliminate jobs and is evil!
+
+AI can do both amazing things and horrible things. Both.
+
+Regardless, AI will continue to be developed because there is money to be made. Even if a bunch of countries ban/regulate AI, there are others who won't, and so it will be developed there. In other words, more AI is coming.
+
+So what we need to do is use it for what it is good for, while at the same time trying to put up guardrails, not use it for evil, understand its weaknesses, and mitigate its misuse.
+
+
 
 
 ---
