@@ -8,10 +8,11 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Year ago I was interested in this problem as a potential topic for my PhD thesis. I had some ideas but they did not work out. Here is what I wrote back then.
+Year ago I was interested in this problem as a potential topic for my PhD thesis. I had some ideas but they did not work out. Here is what I wrote back [then](https://github.com/prabinov42/MiscData/blob/master/LCS.pdf).
 
-Since then
-I have a PhD in Probability and Statistics, my thesis was an abstract version of figuring out how big a reordering buffer was needed on a router - which lead to figuring out some properties of random Mallows permutations. A not-so-technical overview of part of it is [here](https://github.com/prabinov42/MiscData/blob/master/LCS.pdf).
+I have recently explicitly calculated (not sampled) the distribution of the lengths for the LCS for $n$ up to $16$. The results are [here](https://github.com/prabinov42/LCS_Numerology/blob/main/LCS_Numerology.md). Note that these are done in arbitrary precision math with Mathematica, not floating point approximations. To the best of my knowledge, these have not been published before - certainly not at n=16.
+
+
 
 
 

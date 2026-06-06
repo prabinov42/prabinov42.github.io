@@ -2155,9 +2155,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <div class="d-article">
-<p>Year ago I was interested in this problem as a potential topic for my PhD thesis. I had some ideas but they did not work out. Here is what I wrote back then.</p>
-<p>Since then
-I have a PhD in Probability and Statistics, my thesis was an abstract version of figuring out how big a reordering buffer was needed on a router - which lead to figuring out some properties of random Mallows permutations. A not-so-technical overview of part of it is <a href="https://github.com/prabinov42/MiscData/blob/master/LCS.pdf">here</a>.</p>
+<p>Year ago I was interested in this problem as a potential topic for my PhD thesis. I had some ideas but they did not work out. Here is what I wrote back <a href="https://github.com/prabinov42/MiscData/blob/master/LCS.pdf">then</a>.</p>
+<p>I have recently explicitly calculated (not sampled) the distribution of the lengths for the LCS for <span class="math inline">\(n\)</span> up to <span class="math inline">\(16\)</span>. The results are <a href="https://github.com/prabinov42/LCS_Numerology/blob/main/LCS_Numerology.md">here</a>. Note that these are done in arbitrary precision math with Mathematica, not floating point approximations. To the best of my knowledge, these have not been published before - certainly not at n=16.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2166,6 +2165,15 @@ I have a PhD in Probability and Statistics, my thesis was an abstract version of
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
