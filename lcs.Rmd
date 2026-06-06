@@ -1,0 +1,17 @@
+---
+title: "LCS"
+description: |
+  The longest common subsequnce problem 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Year ago I was interested in this problem as a potential topic for my PhD thesis. I had some ideas but they did not work out. Here is what I wrote back then.
+
+Since then
+I have a PhD in Probability and Statistics, my thesis was an abstract version of figuring out how big a reordering buffer was needed on a router - which lead to figuring out some properties of random Mallows permutations. A not-so-technical overview of part of it is [here](https://github.com/prabinov42/MiscData/blob/master/ThesisSummary1.pdf).
+
+
+
